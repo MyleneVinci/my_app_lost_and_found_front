@@ -1,0 +1,31 @@
+.promise {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+}
+
+.promise-title {
+    text-align: center;
+    /* margin: 10px 0 10px 0; */
+    color: var(--main-color);
+}
+
+.promise button {
+    width: 100px;
+    font-size:x-large;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgb(104, 104, 104);
+    color: white;
+    cursor: pointer;
+}
+
+.found {
+    background-color:#3b8615;
+}
+
+.lost {
+    background-color: rgb(190, 12, 12);
+}
