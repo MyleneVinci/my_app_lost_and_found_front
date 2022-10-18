@@ -4,11 +4,11 @@
     align-items: center;
     width: 70%;
     margin: auto;
+    margin-bottom: 50px;
 }
 
-.promise-title {
+.promise h2 {
     text-align: center;
-    /* margin: 10px 0 10px 0; */
     color: var(--main-color);
 }
 

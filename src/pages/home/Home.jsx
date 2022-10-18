@@ -1,15 +1,17 @@
 import React from 'react';
 
-import PromiseText from '../../components/promiseText/PromiseText';
+import PromiseContainer from '../../components/promiseContainer/PromiseContainer';
 import Instructions from '../../components/instructions/Instructions';
+import MapContainer from '../../components/mapContainer/MapContainer';
 
 import './home.css';
 
 const Home = () => {
   return (
     <div className='home'>
-          <PromiseText />
+          <PromiseContainer />
           <Instructions />
+          <MapContainer />
     </div>
   )
 }

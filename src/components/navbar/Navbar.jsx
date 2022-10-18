@@ -16,14 +16,8 @@ const Navbar = () => {
                     <img classname='logo' src={logo} alt="logo" />
                 </div>
                 <div className='navbar-menu'>
-                    <div className='navbar-menu-actions'>
                         <FaRegEnvelope style={iconStyle} />
                         <FaRegUser style={iconStyle} />
-                    </div>
-                    <div>
-                        <FaSignInAlt style={iconStyle} />
-                        {/* <FaSignOutAlt style={iconStyle} /> */}
-                    </div>
                 </div>
             </div>
             <div className='header'></div>

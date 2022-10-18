@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaRegUser, FaLongArrowAltDown, FaRegEdit, FaMobileAlt, FaLaptop } from "react-icons/fa";
+import { FaRegUser, FaLongArrowAltDown, FaRegEdit, FaRegMap } from "react-icons/fa";
 
 
 import './instructions.css';
@@ -21,8 +21,8 @@ const Instructions = () => {
                 <FaLongArrowAltDown style={iconStyle} />
             </div>
             <div className='step-three'>
-                <FaMobileAlt style={iconStyle} />  <FaLaptop style={iconStyle} /> 
-                <p>Consultez annonces</p>
+                <FaRegMap style={iconStyle} />
+                <p>Consultez les annonces existantes</p>
             </div>
         </div>
     )
