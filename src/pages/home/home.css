@@ -1,6 +1,13 @@
 .home {
-display: flex;
-flex-direction: column;
-justify-content: space-around;
+    width: 70%;
+    margin: auto;
 }
 
+@media screen and (min-width:768px) {
+    .home {
+        border-left: 0.15px solid rgb(202, 198, 198) ;
+        border-right: 0.15px solid rgb(202, 198, 198) ;
+
+    
+    }
+}

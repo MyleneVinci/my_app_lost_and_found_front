@@ -9,9 +9,9 @@ import './home.css';
 const Home = () => {
   return (
     <div className='home'>
-          <PromiseContainer />
-          <Instructions />
-          <MapContainer />
+      <PromiseContainer />
+      <Instructions />
+      <MapContainer />
     </div>
   )
 }
