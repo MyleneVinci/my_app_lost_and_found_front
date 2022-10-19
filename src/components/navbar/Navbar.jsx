@@ -28,9 +28,38 @@ const Navbar = () => {
             </div>
         </div>
         <div className='desktop-navbar'>
+            <div className="unique-navbar">
+                <div className='navbar-logo'>
+                    <img classname='logo' src={logo} alt="logo" />
+                </div>
+                <div className='navbar-menu'>
+                    <div className="navigation">
+                        <FaHome style={iconStyle} />
+                        <p>Accueil</p>
+                    </div>
+                    <div className="navigation">
+                        <FaRegEdit style={iconStyle} />
+                        <p>Créer</p>
+                    </div>
+                    <div className="navigation">
+                        <FaRegMap style={iconStyle} />
+                        <p>Consulter</p>
+                    </div>
+                    <div className="navigation">
+                        <FaRegEnvelope style={iconStyle} />
+                        <p>Conversations</p>
+                    </div>
+                    <div className="navigation">
+                        <FaRegUser style={iconStyle} />
+                        <p>Profil</p>
+                    </div>
+                </div> 
+
+            </div>
+            <div className='header'></div>
         </div>
     </div>
-  )
+    )
 }
 
 export default Navbar;
