@@ -1,13 +1,13 @@
 import React from 'react';
-import { FaRegEnvelope, FaRegUser, FaSignInAlt, FaSignOutAlt, FaHome, FaRegEdit, FaRegFileAlt, FaRegMap, FaInfoCircle } from "react-icons/fa";
+import { FaRegEnvelope, FaRegUser, FaHome, FaRegEdit, FaRegMap, FaInfoCircle } from "react-icons/fa";
 import logo from "../../assets/logo.png"
 
 import './navbar.css';
 
 const Navbar = () => {
-  let iconStyle = { fontSize: "28px", color: '#F7F2D4' };
 
   return (
+    /*navbar version mobile */
     <div className='navbar'>
         <div className='mobile-navbar'>
             <div className='top-navbar'>
@@ -15,18 +15,19 @@ const Navbar = () => {
                     <img classname='logo' src={logo} alt="logo" />
                 </div>
                 <div className='navbar-menu'>
-                    <FaRegEnvelope style={iconStyle} />
-                    <FaRegUser style={iconStyle} />
+                    <FaRegEnvelope  />
+                    <FaRegUser  />
                 </div>
             </div>
             <div className='header'></div>
             <div className='bottom-navbar'>
-                <FaHome style={iconStyle} />
-                <FaRegEdit style={iconStyle} />
-                <FaRegMap style={iconStyle} />
-                <FaInfoCircle style={iconStyle} />
+                <FaHome  />
+                <FaRegEdit  />
+                <FaRegMap  />
+                <FaInfoCircle  />
             </div>
         </div>
+        {/* navbar version tablette et bureau  */}
         <div className='desktop-navbar'>
             <div className="unique-navbar">
                 <div className='navbar-logo'>
@@ -34,23 +35,23 @@ const Navbar = () => {
                 </div>
                 <div className='navbar-menu'>
                     <div className="navigation">
-                        <FaHome style={iconStyle} />
+                        <FaHome  />
                         <p>Accueil</p>
                     </div>
                     <div className="navigation">
-                        <FaRegEdit style={iconStyle} />
+                        <FaRegEdit  />
                         <p>Créer</p>
                     </div>
                     <div className="navigation">
-                        <FaRegMap style={iconStyle} />
+                        <FaRegMap  />
                         <p>Consulter</p>
                     </div>
                     <div className="navigation">
-                        <FaRegEnvelope style={iconStyle} />
+                        <FaRegEnvelope  />
                         <p>Conversations</p>
                     </div>
                     <div className="navigation">
-                        <FaRegUser style={iconStyle} />
+                        <FaRegUser  />
                         <p>Profil</p>
                     </div>
                 </div> 

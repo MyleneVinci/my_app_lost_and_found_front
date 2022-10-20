@@ -18,3 +18,44 @@
     color: var(--main-color);
     font-weight: bold;
 }
+
+.step {
+    font-size: 40px;
+    color: #3F312D;   
+}
+
+.step p {
+    font-size: 20px;
+}
+
+
+
+@media screen and (min-width:1200px) {
+    .instructions h2 {
+        font-size: 50px;
+    }
+
+    .step {
+        font-size: 60px;   
+    }
+
+    .step p {
+        font-size: 40px;
+    }
+
+}
+
+
+@media screen and (min-width: 1500px) {
+    .instructions h2 {
+        font-size: 70px;
+    }
+
+    .step {
+        font-size: 80px;   
+    }
+
+    .step p {
+        font-size: 50px;
+    }
+}
