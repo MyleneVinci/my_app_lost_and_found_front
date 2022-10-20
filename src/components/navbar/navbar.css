@@ -54,6 +54,11 @@
     align-items: center;
 }
 
+.navbar-menu, .bottom-navbar, .navigation {
+    color: #f7f2d4;
+    font-size: 28px;
+}
+
 .desktop-navbar {
     display: none;
 }
@@ -130,6 +135,11 @@
     background-image: url('../../assets/header.jpg');
     margin-bottom: 30px;
 }
+
+.navbar-menu, .bottom-navbar, .navigation p {
+    font-size: 22px;
+}
+
 }
 
 @media screen and (min-width: 992px) {
@@ -151,17 +161,33 @@
 }
 
 @media screen and (min-width: 1200px) {
+    .unique-navbar {
+        height: 100px;
+    }
+
+    .navbar-logo img {
+        height: 100px;
+    }
+
     .navbar-menu {
         width: 50%;
         padding-right: 40px;
-        font-size: larger;
     }
 
     .header {
-        height: 370px;
+        height: 410px;
         margin-bottom: 40px;
         background-position: bottom 50% right;
     }
+
+    .navbar-menu, .navigation {
+        font-size: 40px;
+    }
+    
+    .navbar-menu, .bottom-navbar, .navigation p {
+        font-size: 28px;
+    }
+    
 }
 
 @media screen and (min-width: 1500px) {
