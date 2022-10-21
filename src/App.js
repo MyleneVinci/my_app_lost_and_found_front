@@ -15,11 +15,11 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Home />
-      {/* <LogIn />
+      {/* <Home /> */}
+      {/* <LogIn /> */}
       <SignIn />
-      <Declaration />
-      <Profile /> */}
+      {/* <Declaration /> */}
+      {/* <Profile /> */}
     </div>
   );
 }

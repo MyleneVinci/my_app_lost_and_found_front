@@ -1,0 +1,171 @@
+.signIn {
+    width: 70%;
+    margin: auto;
+    color: var(--main-color);
+    margin-bottom: 100px;
+
+}
+
+.signIn h1 {
+    text-align: center;
+}
+
+.signIn-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signIn-form input {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    height: 30px;
+    border-color: rgb(202, 198, 198);
+}
+
+.signIn-form label {
+    font-size: large;
+}
+
+.signIn-form button {
+    margin: auto;
+    margin-top: 10px;
+    width: 100%;
+    padding: 0 10px 5px 10px;
+    font-size: x-large;
+    border-radius: 3px;
+    color: var(--second-color);
+    background-color: var(--third-color);
+}
+
+.signIn-form p {
+    font-size: smaller;
+    text-align: center;
+}
+
+.signIn-pseudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signIn-email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signIn-password {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signIn-confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signIn-checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:center;
+    height: 20px;
+    margin-top: 10px;
+}
+
+.signIn-checkbox input {
+    width: 10px;
+    margin-top: 13px;
+    margin-right: 10px;
+}
+
+@media screen and (min-width:768px) {
+     .signIn {
+        border-left: 0.15px solid rgb(202, 198, 198) ;
+        border-right: 0.15px solid rgb(202, 198, 198) ;
+    }
+
+    .signIn h1 {
+        margin: 60px 0 40px;
+    }
+        
+    .signIn-form label {
+        font-size: x-large;
+    }    
+
+    .signIn-form input {
+        width: 70%;
+    }
+    
+    .signIn-form button {
+        margin-top: 10px;
+        width: 70%;
+        font-size: x-large;
+    }
+    
+    .signIn-form p {
+        font-size: large;
+        text-align: center;
+    }
+    
+    .signIn-checkbox {
+        margin: 20px 0 10px 0;
+    }
+    
+    .signIn-checkbox input {
+        width: 10px;
+        margin-right: 10px;
+    } 
+}
+
+@media screen and (min-width:1200px) {
+    .signIn h1 {
+        font-size: 50px;
+    }
+
+    .signIn-form button {
+        width: 50%;
+    }
+
+    .signIn-form input {
+        width: 50%;
+    }
+
+    .signIn-checkbox input {
+        width: 10px;
+        margin-right: 10px;
+    } 
+}
+
+@media screen and (min-width:1500px) {
+    .signIn h1 {
+        font-size: 60px;
+    }
+
+    .signIn-form button {
+        width: 40%;
+        font-size: xx-large;
+    }
+
+    .signIn-form input {
+        width: 40%;
+    }
+
+    .signIn-form label {
+        font-size: xx-large;
+    }
+
+    .signIn-checkbox input {
+        width: 10px;
+        margin-right: 10px;
+    } 
+
+}
+
+
+
+

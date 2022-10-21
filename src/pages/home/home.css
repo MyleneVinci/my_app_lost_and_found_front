@@ -3,34 +3,11 @@
     margin: auto;
 }
 
-@media screen and (min-width: 567px) {
-    
-}
-
 @media screen and (min-width:768px) {
     .home {
         border-left: 0.15px solid rgb(202, 198, 198) ;
         border-right: 0.15px solid rgb(202, 198, 198) ;
-
     }
 }
 
 
-@media screen and (min-width: 992px) {
-  
-}
-
-@media screen and (min-width: 1200px) {
-    
-}
-
-@media screen and (min-width: 1500px) {
-  
-}
-
-@media screen and (min-width: 1800px) {
-   
-}
-
-@media screen and (min-width: 2200px) {
-}
