@@ -1,0 +1,116 @@
+.logIn {
+    width: 70%;
+    margin: auto;
+    color: var(--main-color);
+    margin-bottom: 100px;
+
+}
+
+.logIn h1 {
+    text-align: center;
+}
+
+.logIn-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logIn-form input {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    height: 30px;
+    border-color: rgb(202, 198, 198);
+}
+
+.logIn-form label {
+    font-size: large;
+}
+
+.logIn-form button {
+    margin: auto;
+    margin-top: 10px;
+    width: 100%;
+    padding: 0 10px 5px 10px;
+    font-size: x-large;
+    border-radius: 3px;
+    color: var(--second-color);
+    background-color: var(--third-color);
+}
+
+.logIn-email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logIn-password {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+@media screen and (min-width:768px) {
+     .logIn {
+        border-left: 0.15px solid rgb(202, 198, 198) ;
+        border-right: 0.15px solid rgb(202, 198, 198) ;
+    }
+
+    .logIn h1 {
+        margin: 60px 0 40px;
+    }
+        
+    .logIn-form label {
+        font-size: x-large;
+    }    
+
+    .logIn-form input {
+        width: 70%;
+    }
+    
+    .logIn-form button {
+        margin-top: 10px;
+        width: 70%;
+        font-size: x-large;
+    }
+    
+}
+
+@media screen and (min-width:1200px) {
+    .logIn h1 {
+        font-size: 50px;
+    }
+
+    .logIn-form button {
+        width: 50%;
+    }
+
+    .logIn-form input {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width:1500px) {
+    .logIn h1 {
+        font-size: 60px;
+    }
+
+    .logIn-form button {
+        width: 40%;
+        font-size: xx-large;
+    }
+
+    .logIn-form input {
+        width: 40%;
+    }
+
+    .logIn-form label {
+        font-size: xx-large;
+    }
+}
+
+
+
+
