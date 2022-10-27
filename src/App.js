@@ -16,10 +16,10 @@ function App() {
     <div className="App">
       <Navbar />
       {/* <Home /> */}
-      <LogIn />
+      {/* <LogIn /> */}
       {/* <SignIn /> */}
       {/* <Declaration /> */}
-      {/* <Profile /> */}
+      <Profile />
     </div>
   );
 }

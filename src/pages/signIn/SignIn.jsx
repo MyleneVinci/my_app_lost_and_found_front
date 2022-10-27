@@ -9,7 +9,7 @@ const SignIn = () => {
       <form className='signIn-form'>
         <div className="signIn-pseudo">
           <label >Pseudo</label>
-          <input type="text" />
+          <input type="text" /> 
         </div>
         <div className="signIn-email">
           <label>Email</label>

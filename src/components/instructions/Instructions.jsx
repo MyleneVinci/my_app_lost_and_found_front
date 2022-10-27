@@ -5,7 +5,6 @@ import { FaRegUser, FaLongArrowAltDown, FaRegEdit, FaRegMap } from "react-icons/
 import './instructions.css';
 
 const Instructions = () => {
-    // let iconStyle = { fontSize: "40px", color: '#3F312D' };
 
     return (
         <div className='instructions'>
