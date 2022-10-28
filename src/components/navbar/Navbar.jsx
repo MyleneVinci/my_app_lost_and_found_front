@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link, NavLink, Navigate } from 'react-router-dom';
+
 import { FaRegEnvelope, FaRegUser, FaHome, FaRegEdit, FaRegMap, FaInfoCircle } from "react-icons/fa";
 import logo from "../../assets/logo.png"
 
@@ -11,49 +13,74 @@ const Navbar = () => {
     <div className='navbar'>
         <div className='mobile-navbar'>
             <div className='top-navbar'>
-                <div className='navbar-logo'>
+                {/* logo menu accueil */}
+                <NavLink to='/accueil' className='navbar-logo'>
                     <img classname='logo' src={logo} alt="logo" />
-                </div>
+                </NavLink >
+                {/* logo menu haut */}
                 <div className='navbar-menu'>
-                    <FaRegEnvelope  />
-                    <FaRegUser  />
+                    <NavLink to='/conversations' className={({ isActive }) => 
+                    isActive ? "selected" : "navigation-link"
+                    }><FaRegEnvelope  /></NavLink>
+                    <NavLink to='/profil' className={({ isActive }) => 
+                    isActive ? "selected" : "navigation-link"
+                    }><FaRegUser  /></NavLink>
                 </div>
             </div>
             <div className='header'></div>
+            {/* logo menu bas */}
             <div className='bottom-navbar'>
-                <FaHome  />
-                <FaRegEdit  />
-                <FaRegMap  />
-                <FaInfoCircle  />
+                <NavLink to='/accueil' className={({ isActive }) => 
+                    isActive ? "selected" : "navigation-link"
+                    }><FaHome  /></NavLink>
+                <NavLink to='/declaration' className={({ isActive }) => 
+                    isActive ? "selected" : "navigation-link"
+                    }><FaRegEdit  /></NavLink>
+                <NavLink to='/carte' className={({ isActive }) => 
+                    isActive ? "selected" : "navigation-link"
+                    }><FaRegMap  /></NavLink>
+                <NavLink to='/informations' className={({ isActive }) => 
+                    isActive ? "selected" : "navigation-link"
+                    }><FaInfoCircle  /></NavLink>
             </div>
         </div>
         {/* navbar version tablette et bureau  */}
         <div className='desktop-navbar'>
             <div className="unique-navbar">
-                <div className='navbar-logo'>
+                <NavLink to='/accueil' className='navbar-logo'>
                     <img classname='logo' src={logo} alt="logo" />
-                </div>
+                </NavLink>
                 <div className='navbar-menu'>
-                    <div className="navigation">
+                    <NavLink to='/accueil' className={({ isActive }) => 
+                    isActive ? "selected" : "navigation-link"
+                    }>
                         <FaHome  />
                         <p>Accueil</p>
-                    </div>
-                    <div className="navigation">
+                    </NavLink>
+                    <NavLink to='/declaration' className={({ isActive }) => 
+                    isActive ? "selected" : "navigation-link"
+                    }>
                         <FaRegEdit  />
-                        <p>Créer</p>
-                    </div>
-                    <div className="navigation">
+                        <p>Déclarer</p>
+                    </NavLink>
+                    <NavLink to='/carte' className={({ isActive }) => 
+                    isActive ? "selected" : "navigation-link"
+                    }>
                         <FaRegMap  />
-                        <p>Consulter</p>
-                    </div>
-                    <div className="navigation">
+                        <p>Carte</p>
+                    </NavLink>
+                    <NavLink to='/conversations' className={({ isActive }) => 
+                    isActive ? "selected" : "navigation-link"
+                    }>
                         <FaRegEnvelope  />
                         <p>Conversations</p>
-                    </div>
-                    <div className="navigation">
+                    </NavLink>
+                    <NavLink to='/profil' className={({ isActive }) => 
+                    isActive ? "selected" : "navigation-link"
+                    }>
                         <FaRegUser  />
                         <p>Profil</p>
-                    </div>
+                    </NavLink>
                 </div> 
 
             </div>
