@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-
 import Navbar from './components/navbar/Navbar';
 import Home from './pages/home/Home';
 import LogIn from './pages/logIn/LogIn';
@@ -27,7 +26,6 @@ function App() {
         <Route path='/carte' element={<MapRoom />} />
         <Route path='/conversations' element={<Chat />} />
         <Route path='/informations' element={<Infos />} />
-
       </ Routes>
     </div>
   );
