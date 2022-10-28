@@ -14,10 +14,12 @@ const Profile = () => {
   return (
     <div className='profile'>
       <h1>BONJOUR</h1>
+    <div className="profile-container">
       <PersonalData />
       <LostItems />  
       <FoundItems />
       <Conversations />    
+    </div>
     </div>
   )
 }
