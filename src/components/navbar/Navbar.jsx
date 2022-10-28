@@ -82,7 +82,6 @@ const Navbar = () => {
                         <p>Profil</p>
                     </NavLink>
                 </div> 
-
             </div>
             <div className='header'></div>
         </div>
