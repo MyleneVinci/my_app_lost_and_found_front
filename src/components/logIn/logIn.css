@@ -54,11 +54,6 @@
 }
 
 @media screen and (min-width:768px) {
-     .logIn {
-        border-left: 0.15px solid rgb(202, 198, 198) ;
-        border-right: 0.15px solid rgb(202, 198, 198) ;
-    }
-
     .logIn h1 {
         margin-bottom: 40px;
     }
