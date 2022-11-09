@@ -8,9 +8,9 @@ import LostItems from '../profileComponents/LostItems';
 import FoundItems from '../profileComponents/FoundItems';
 import Conversations from '../profileComponents/Conversations';
 
-import './profileCard.css';
+import './logProfileCard.css';
 
-const ProfileCard = () => {
+const LogProfileCard = () => {
     //bouton deconnexion
     const { setUser} = useUser(true);
     // const { user } = useUser();
@@ -59,4 +59,4 @@ const ProfileCard = () => {
 }
 
 
-export default ProfileCard;
+export default LogProfileCard;

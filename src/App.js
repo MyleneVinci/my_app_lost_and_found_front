@@ -5,7 +5,7 @@ import Navbar from './components/navbar/Navbar';
 import Home from './pages/home/Home';
 import LogIn from './components/logIn/LogIn';
 import SignIn from './components/signIn/SignIn';
-import ProfileCard from './components/profileCard/ProfileCard';
+import ProfileCard from './components/profileCard/LogProfileCard';
 import Declaration from './pages/declaration/Declaration';
 import Profile from './pages/profile/Profile';
 import Log from './pages/profile/Log';
