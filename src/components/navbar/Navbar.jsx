@@ -19,7 +19,7 @@ const Navbar = () => {
                 <div className='mobile-navbar'>
                     <div className='top-navbar'>
                         {/* logo menu accueil */}
-                        <NavLink to='/accueil' className='navbar-logo'>
+                        <NavLink to='/' className='navbar-logo'>
                             <img className='logo' src={logo} alt="logo" />
                         </NavLink >
                         {/* logo menu haut */}
@@ -35,7 +35,7 @@ const Navbar = () => {
                     <div className='header'></div>
                     {/* logo menu bas */}
                     <div className='bottom-navbar'>
-                        <NavLink to='/accueil' className={({ isActive }) => 
+                        <NavLink to='/' className={({ isActive }) => 
                             isActive ? "selected" : "navigation-link"
                             }><FaHome  /></NavLink>
                         <NavLink to='/declaration' className={({ isActive }) => 
@@ -54,11 +54,11 @@ const Navbar = () => {
             {!user &&
                 <div className='desktop-navbar'>
                     <div className="unique-navbar">
-                        <NavLink to='/accueil' className='navbar-logo'>
+                        <NavLink to='/' className='navbar-logo'>
                             <img className='logo' src={logo} alt="logo" />
                         </NavLink>
                         <div className='navbar-menu'>
-                            <NavLink to='/accueil' className={({ isActive }) => 
+                            <NavLink to='/' className={({ isActive }) => 
                             isActive ? "selected" : "navigation-link"
                             }>
                                 <FaHome  />
@@ -99,7 +99,7 @@ const Navbar = () => {
                 <div className='mobile-navbar'>
                     <div className='top-navbar'>
                         {/* logo menu accueil */}
-                        <NavLink to='/accueil' className='navbar-logo'>
+                        <NavLink to='/' className='navbar-logo'>
                             <img className='logo' src={logo} alt="logo" />
                         </NavLink >
                         {/* logo menu haut */}
@@ -115,7 +115,7 @@ const Navbar = () => {
                     <div className='header'></div>
                     {/* logo menu bas */}
                     <div className='bottom-navbar'>
-                        <NavLink to='/accueil' className={({ isActive }) => 
+                        <NavLink to='/' className={({ isActive }) => 
                             isActive ? "selected" : "navigation-link"
                             }><FaHome  /></NavLink>
                         <NavLink to='/declaration' className={({ isActive }) => 

@@ -19,7 +19,7 @@ const LogProfileCard = () => {
     function handleDisconnect(){
         setUser(!useUser)
         alert('Bonne journée et à bientôt')
-        navigator('/accueil')
+        navigator('/')
     }
     
     //récupère les users
@@ -33,6 +33,7 @@ const LogProfileCard = () => {
             .then((data) => setAdUser(data))
     }, [id])
     
+    console.log(adUser.id)
     let admin = false;
     if (adUser.isAdmin === 1) {
         admin = true;  

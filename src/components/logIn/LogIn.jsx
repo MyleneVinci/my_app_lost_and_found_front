@@ -48,7 +48,6 @@ const LogIn = () => {
           //je récupère (pour envoyer)les attributs propre à mon user: credentials se trouve dans le back
           .then(({ data: { credentials, id } }) => {
             // quels attributs : qu'est ce que je vais envoyer une fois que l'utilisateur est connecté (j'attache le token)
-            console.log(id);
             setUser({
               token: credentials,
               id: id,
@@ -62,6 +61,7 @@ const LogIn = () => {
           });
       },
     });
+
   
   return (
     <div className='logIn'>

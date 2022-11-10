@@ -11,7 +11,8 @@ import './signIn.css';
 
 const SignIn = () => {
   const navigator = useNavigate();
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
   const { setUser } = useUser();
 
   const validationSchema = Yup.object().shape({
@@ -30,6 +31,39 @@ const SignIn = () => {
     acceptTerms: Yup.bool().oneOf([true], "Veuillez accepter les conditions d'utilisation"),
   });
 
+  const onSubmit = async (values) => {
+    const {confirmPassword, acceptTerms, ...data} = values;
+
+    const response = await axios
+    .post(`${process.env.REACT_APP_API_URL}/user/`, data)
+    // .then(({ data: { credential }}) => {
+    //   setUser({
+    //     token: credential,
+    //   });
+    //   setError(null);
+    //   setSuccess(response.data.message)
+    //   formik.resetForm();
+
+    // })
+    .catch((err) => {
+      if (err && err.response) {
+      setError(err.response.data.message);
+      setSuccess(null);
+      console.log(err.response.data.message)
+
+      }
+
+    });
+
+    if (response && response.data.message) {
+      setError(null);
+      setSuccess(response.data.message);
+      console.log('ca marche')
+      formik.resetForm();
+    }
+
+}
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -38,25 +72,34 @@ const SignIn = () => {
       confirmPassword: "",
       acceptTerms: false,
 
-    },validationSchema,
-    onSubmit: (values) => {
-      axios
-        .post(`${process.env.REACT_APP_API_URL}/user/`, values)
-        .then(({ data: { credential } }) => {
-          setUser({
-            token: credential,
-          });
-          navigator("/connexion");
-        })
-        .catch((err) => {
-          setError(err.response.data.message);
-        });
-    },
+    }, 
+    validateOnBlur: true,
+    onSubmit,
+    validationSchema: validationSchema,
+    // onSubmit: (values, { setSubmitting } ) => {
+          //   const {confirmPassword, acceptTerms, ...data} = values;
+    //   axios
+    //     .post(`${process.env.REACT_APP_API_URL}/user/`, data)
+    //     .then(({ data: { credential } }) => {
+    //       setUser({
+    //         token: credential,
+    //       });
+    //       // navigator("/connexion");
+    //     })
+    //     .catch((err) => {
+    //       setError(err.response.data.message);
+    //     });
+        
+    // },
   });
+
+  
 
   return (
     <div className='signIn'>
       <h1>INSCRIPTION</h1>
+      <div>{ !error && success ? success : ""}</div>
+      <div>{ !success && error ? error : ""}</div>
       <form onSubmit={formik.handleSubmit} className='signIn-form'>
         <div className="signIn-pseudo">
           <label htmlFor="username">Pseudo</label>
@@ -70,6 +113,7 @@ const SignIn = () => {
                 : '')
             }
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.username}
             placeholder="pseudo"
           /> 
@@ -89,6 +133,7 @@ const SignIn = () => {
               (formik.errors.email && formik.touched.email ? ' is-invalid' : '')
             }
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.email}
             placeholder="Adresse e-mail"
           />
@@ -110,6 +155,7 @@ const SignIn = () => {
                 : '')
             }
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.password}
             placeholder="Mot de passe"
           />
@@ -131,6 +177,7 @@ const SignIn = () => {
                 : '')
             }
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             value={formik.values.confirmPassword}
             placeholder="Mot de passe"
           />
@@ -141,27 +188,31 @@ const SignIn = () => {
           </div>
         </div>
         <div className="signIn-checkbox">
-          <input 
-            name="acceptTerms"
-            type="checkbox"
-            className={
-              'form-check-input' +
-              (formik.errors.acceptTerms && formik.touched.acceptTerms
-                ? ' is-invalid'
-                : '')
-            }
-            onChange={formik.handleChange}
-            value={formik.values.acceptTerms} 
-          />
-          <p>J'accepte les conditions d'utilisation</p>
+            <input 
+              name="acceptTerms"
+              type="checkbox"
+              className={
+                'form-check-input' +
+                (formik.errors.acceptTerms && formik.touched.acceptTerms
+                  ? ' is-invalid'
+                  : '')
+              }
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.acceptTerms} 
+            />
+            <p>J'accepte les conditions d'utilisation</p>
           <div className="invalid-feedback">
             {formik.errors.acceptTerms && formik.touched.acceptTerms
               ? formik.errors.acceptTerms
               : null}
           </div>
         </div>
+        <div>
         <button type='submit'>Valider</button>
         <p>Protection des données</p>
+
+        </div>
       </form>
     </div>
   )
