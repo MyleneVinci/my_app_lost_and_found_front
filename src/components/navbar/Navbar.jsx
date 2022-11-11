@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useUser } from '../UserProvider';
 
-
 import { FaRegEnvelope, FaRegUser, FaHome, FaRegEdit, FaRegMap, FaInfoCircle } from "react-icons/fa";
 import logo from "../../assets/logo.png"
 
@@ -19,7 +18,7 @@ const Navbar = () => {
                 <div className='mobile-navbar'>
                     <div className='top-navbar'>
                         {/* logo menu accueil */}
-                        <NavLink to='/' className='navbar-logo'>
+                        <NavLink to='/accueil' className='navbar-logo'>
                             <img className='logo' src={logo} alt="logo" />
                         </NavLink >
                         {/* logo menu haut */}
@@ -35,7 +34,7 @@ const Navbar = () => {
                     <div className='header'></div>
                     {/* logo menu bas */}
                     <div className='bottom-navbar'>
-                        <NavLink to='/' className={({ isActive }) => 
+                        <NavLink to='/accueil' className={({ isActive }) => 
                             isActive ? "selected" : "navigation-link"
                             }><FaHome  /></NavLink>
                         <NavLink to='/declaration' className={({ isActive }) => 
@@ -54,7 +53,7 @@ const Navbar = () => {
             {!user &&
                 <div className='desktop-navbar'>
                     <div className="unique-navbar">
-                        <NavLink to='/' className='navbar-logo'>
+                        <NavLink to='/accueil' className='navbar-logo'>
                             <img className='logo' src={logo} alt="logo" />
                         </NavLink>
                         <div className='navbar-menu'>
@@ -99,7 +98,7 @@ const Navbar = () => {
                 <div className='mobile-navbar'>
                     <div className='top-navbar'>
                         {/* logo menu accueil */}
-                        <NavLink to='/' className='navbar-logo'>
+                        <NavLink to='/accueil' className='navbar-logo'>
                             <img className='logo' src={logo} alt="logo" />
                         </NavLink >
                         {/* logo menu haut */}
@@ -115,7 +114,7 @@ const Navbar = () => {
                     <div className='header'></div>
                     {/* logo menu bas */}
                     <div className='bottom-navbar'>
-                        <NavLink to='/' className={({ isActive }) => 
+                        <NavLink to='/accueil' className={({ isActive }) => 
                             isActive ? "selected" : "navigation-link"
                             }><FaHome  /></NavLink>
                         <NavLink to='/declaration' className={({ isActive }) => 

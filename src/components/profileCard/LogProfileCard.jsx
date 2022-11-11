@@ -13,13 +13,12 @@ import './logProfileCard.css';
 const LogProfileCard = () => {
     //bouton deconnexion
     const { setUser} = useUser(true);
-    // const { user } = useUser();
     const navigator = useNavigate();
     
     function handleDisconnect(){
         setUser(!useUser)
         alert('Bonne journée et à bientôt')
-        navigator('/')
+        navigator('/accueil')
     }
     
     //récupère les users
@@ -33,7 +32,6 @@ const LogProfileCard = () => {
             .then((data) => setAdUser(data))
     }, [id])
     
-    console.log(adUser.id)
     let admin = false;
     if (adUser.isAdmin === 1) {
         admin = true;  
@@ -58,6 +56,5 @@ const LogProfileCard = () => {
         </div>
     );
 }
-
 
 export default LogProfileCard;

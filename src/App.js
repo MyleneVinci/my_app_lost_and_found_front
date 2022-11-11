@@ -22,7 +22,7 @@ function App() {
       <UserProvider>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/accueil' element={<Home />} />
         <Route path='/connexion' element={<LogIn />} />
         <Route path='/inscription' element={<SignIn />} />
         <Route path='/declaration' element={<Declaration />} />

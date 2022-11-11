@@ -3,23 +3,35 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useUser } from "../UserProvider";
 import * as Yup from 'yup';
 
-// import "bootstrap/dist/css/bootstrap.min.css";
 import './signIn.css';
 
 const SignIn = () => {
   const navigator = useNavigate();
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
-  const { setUser } = useUser();
 
   const validationSchema = Yup.object().shape({
     username: Yup.string()
       .required("Pseudo requis")
       .min(6, "Votre pseudo doit avoir plus de 6 caractères")
-      .max(20, "Votre pseudo doit avoir moins de 20 caractères"),
+      .max(20, "Votre pseudo doit avoir moins de 20 caractères")
+      .test('Pseudo unique', 'Pseudo déjà utilisé',
+        function (value) {
+          return new Promise ((resolve, reject) => {
+            axios.get(`${process.env.REACT_APP_API_URL}/user/username/${value}`)
+              .then((res) => {
+                if (res.response.message)
+                resolve(true)
+              })
+              .catch((error) => {
+                if (error)
+                  resolve(false)
+              })
+          })
+        }
+      ),
     email: Yup.string().required("Email requis").email("Email invalide"),
     password: Yup.string()
       .required("Mot de passe requis")
@@ -36,32 +48,19 @@ const SignIn = () => {
 
     const response = await axios
     .post(`${process.env.REACT_APP_API_URL}/user/`, data)
-    // .then(({ data: { credential }}) => {
-    //   setUser({
-    //     token: credential,
-    //   });
-    //   setError(null);
-    //   setSuccess(response.data.message)
-    //   formik.resetForm();
-
-    // })
     .catch((err) => {
       if (err && err.response) {
       setError(err.response.data.message);
       setSuccess(null);
-      console.log(err.response.data.message)
-
       }
-
     });
 
     if (response && response.data.message) {
       setError(null);
       setSuccess(response.data.message);
-      console.log('ca marche')
       formik.resetForm();
     }
-
+    navigator(`/enregistrement`);
 }
 
   const formik = useFormik({
@@ -71,29 +70,11 @@ const SignIn = () => {
       password: "",
       confirmPassword: "",
       acceptTerms: false,
-
     }, 
     validateOnBlur: true,
     onSubmit,
     validationSchema: validationSchema,
-    // onSubmit: (values, { setSubmitting } ) => {
-          //   const {confirmPassword, acceptTerms, ...data} = values;
-    //   axios
-    //     .post(`${process.env.REACT_APP_API_URL}/user/`, data)
-    //     .then(({ data: { credential } }) => {
-    //       setUser({
-    //         token: credential,
-    //       });
-    //       // navigator("/connexion");
-    //     })
-    //     .catch((err) => {
-    //       setError(err.response.data.message);
-    //     });
-        
-    // },
   });
-
-  
 
   return (
     <div className='signIn'>
@@ -209,9 +190,8 @@ const SignIn = () => {
           </div>
         </div>
         <div>
-        <button type='submit'>Valider</button>
-        <p>Protection des données</p>
-
+          <button type='submit'>Valider</button>
+          <p>Protection des données</p>
         </div>
       </form>
     </div>
