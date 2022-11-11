@@ -1,5 +1,5 @@
 .signIn {
-    width: 70%;
+    width: 72%;
     margin: auto;
     color: var(--main-color);
     margin-bottom: 100px;
@@ -19,7 +19,6 @@
 
 .signIn-form input {
     width: 100%;
-    margin-bottom: 10px;
     border-radius: 3px;
     height: 30px;
     border-color: rgb(202, 198, 198);
@@ -43,6 +42,7 @@
 .signIn-form p {
     font-size: smaller;
     text-align: center;
+    word-break: break-word;
 }
 
 .signIn-pseudo {
@@ -71,11 +71,16 @@
 
 .signIn-checkbox {
     display: flex;
+    flex-direction: column;
+
+}
+.signIn-checkbox2 {
+    width: 100%;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content:center;
     height: 20px;
-    margin-top: 10px;
 }
 
 .signIn-checkbox input {
@@ -84,12 +89,69 @@
     margin-right: 10px;
 }
 
-@media screen and (min-width:768px) {
-     .signIn {
-        border-left: 0.15px solid rgb(202, 198, 198) ;
-        border-right: 0.15px solid rgb(202, 198, 198) ;
-    }
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    border-color: #dc3545;
+    padding-right: calc(1.5em + 0.75rem);
+    /* background-image: url(data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 12 12%27 width=%2712%27 height=%2712%27 fill=%27none%27 stroke=%27%23dc3545%27%3e%3ccircle cx=%276%27 cy=%276%27 r=%274.5%27/%3e%3cpath stroke-linejoin=%27round%27 d=%27M5.8 3.6h.4L6 6.5z%27/%3e%3ccircle cx=%276%27 cy=%278.2%27 r=%27.6%27 fill=%27%23dc3545%27 stroke=%27none%27/%3e%3c/svg%3e); */
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
 
+.form-control.is-invalid:focus, .was-validated .form-control:invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 25%);
+}
+
+.is-invalid~.invalid-feedback, .is-invalid~.invalid-tooltip, .was-validated :invalid~.invalid-feedback, .was-validated :invalid~.invalid-tooltip {
+    display: block;
+}
+
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    font-size: .875em;
+    color: #dc3545;
+    margin-bottom: 5px;
+    word-break: break-word;}
+
+.form-check-input.is-invalid, .was-validated .form-check-input:invalid {
+    border-color: #dc3545;
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: 0.25em;
+}
+
+.form-check-input:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+
+@media screen and (min-width:768px) {
     .signIn h1 {
         margin-bottom: 40px;
     }

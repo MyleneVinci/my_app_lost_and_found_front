@@ -10,14 +10,14 @@ const Instructions = () => {
         <div className='instructions'>
                 <h2>Comment retrouver un objet perdu ?</h2>
             <div className='step'>
-                <FaRegUser classname='icon'  />
+                <FaRegUser className='icon'  />
                 <p>Créez votre compte</p>
-                <FaLongArrowAltDown classname='icon'  />
+                <FaLongArrowAltDown className='icon'  />
             </div>
             <div className='step'>
-                <FaRegEdit classname='icon' />
+                <FaRegEdit className='icon' />
                 <p>Créez votre annonce</p>
-                <FaLongArrowAltDown classname='icon' />
+                <FaLongArrowAltDown className='icon' />
             </div>
             <div className='step'>
                 <FaRegMap  />
