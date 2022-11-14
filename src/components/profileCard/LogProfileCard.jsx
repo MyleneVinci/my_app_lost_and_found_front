@@ -18,7 +18,7 @@ const LogProfileCard = () => {
     function handleDisconnect(){
         setUser(!useUser)
         alert('Bonne journée et à bientôt')
-        navigator('/accueil')
+        navigator('/')
     }
     
     //récupère les users
