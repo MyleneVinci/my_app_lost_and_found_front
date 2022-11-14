@@ -182,7 +182,7 @@ const SignIn = () => {
               onBlur={formik.handleBlur}
               value={formik.values.acceptTerms} 
             />
-            <p>J'accepte les conditions d'utilisation</p>
+            <label>J'accepte les conditions d'utilisation</label>
           <div className="invalid-feedback">
             {formik.errors.acceptTerms && formik.touched.acceptTerms
               ? formik.errors.acceptTerms

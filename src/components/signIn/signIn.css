@@ -3,7 +3,6 @@
     margin: auto;
     color: var(--main-color);
     margin-bottom: 100px;
-
 }
 
 .signIn h1 {
@@ -24,10 +23,6 @@
     border-color: rgb(202, 198, 198);
 }
 
-.signIn-form label {
-    font-size: large;
-}
-
 .signIn-form button {
     margin: auto;
     margin-top: 10px;
@@ -41,8 +36,6 @@
 
 .signIn-form p {
     font-size: smaller;
-    text-align: center;
-    word-break: break-word;
 }
 
 .signIn-pseudo {
@@ -69,24 +62,24 @@
     align-items: center;
 }
 
-.signIn-checkbox {
-    display: flex;
-    flex-direction: column;
-
+.signIn-pseudo, .signIn-email, .signIn-password, .signIn-confirmation  label {
+    font-size: large;
 }
-.signIn-checkbox2 {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content:center;
-    height: 20px;
+
+.signIn-checkbox {
+    display:block;
+    flex-direction:inherit;
 }
 
 .signIn-checkbox input {
     width: 10px;
-    margin-top: 13px;
     margin-right: 10px;
+    vertical-align: middle;
+}
+
+.signIn-checkbox label {
+    font-size: smaller;
+    word-break: break-word;
 }
 
 .form-control {
@@ -103,6 +96,7 @@
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
 }
 .form-control.is-invalid, .was-validated .form-control:invalid {
     border-color: #dc3545;
@@ -112,6 +106,7 @@
     background-position: right calc(0.375em + 0.1875rem) center;
     background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
+
 .form-control:focus {
     color: #212529;
     background-color: #fff;
@@ -171,9 +166,12 @@
     }
     
     .signIn-form p {
-        font-size: large;
-        text-align: center;
+        font-size: smaller;
     }
+
+    .signIn-pseudo, .signIn-email, .signIn-password, .signIn-confirmation  label {
+        font-size: larger;
+    }    
     
     .signIn-checkbox {
         margin: 20px 0 10px 0;
@@ -183,6 +181,11 @@
         width: 10px;
         margin-right: 10px;
     } 
+
+    .signIn-checkbox label {
+        font-size: smaller;
+        word-break: break-word;
+    }
 }
 
 @media screen and (min-width:1200px) {
@@ -218,15 +221,34 @@
         width: 40%;
     }
 
-    .signIn-form label {
+    .signIn-form p {
+        font-size: large;
+    }
+
+    .signIn-pseudo label {
         font-size: xx-large;
     }
 
+    .signIn-email label {
+        font-size: xx-large;
+    }
+
+    .signIn-password label {
+        font-size: xx-large;
+    }
+
+    .signIn-confirmation label {
+        font-size: xx-large;
+    }
+
+    .signIn-checkbox label {
+        font-size: large;
+    }
+
     .signIn-checkbox input {
-        width: 10px;
+        width: 12px;
         margin-right: 10px;
     } 
-
 }
 
 

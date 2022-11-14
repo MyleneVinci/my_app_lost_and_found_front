@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import Navbar from './components/navbar/Navbar';
 import Home from './pages/home/Home';
@@ -22,16 +22,16 @@ function App() {
       <UserProvider>
       <Navbar />
       <Routes>
-        <Route path='/accueil' element={<Home />} />
-        <Route path='/connexion' element={<LogIn />} />
-        <Route path='/inscription' element={<SignIn />} />
-        <Route path='/declaration' element={<Declaration />} />
-        <Route path='/profil' element={<Profile />} />
-        <Route path='/profil/:id' element={<LogProfileCard />} />
-        <Route path='/enregistrement' element={<Log />} />
-        <Route path='/carte' element={<MapRoom />} />
-        <Route path='/conversations' element={<Chat />} />
-        <Route path='/informations' element={<Infos />} />
+        <Route exact path='/' element={<Home />} />
+        <Route exact  path='/connexion' element={<LogIn />} />
+        <Route exact  path='/inscription' element={<SignIn />} />
+        <Route exact  path='/declaration' element={<Declaration />} />
+        <Route exact  path='/profil' element={<Profile />} />
+        <Route exact  path='/profil/:id' element={<LogProfileCard />} />
+        <Route exact  path='/enregistrement' element={<Log />} />
+        <Route exact  path='/carte' element={<MapRoom />} />
+        <Route exact  path='/conversations' element={<Chat />} />
+        <Route exact  path='/informations' element={<Infos />} />
       </ Routes>
       </UserProvider>
     </div>
