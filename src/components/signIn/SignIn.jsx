@@ -12,6 +12,7 @@ const SignIn = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
+      //schema de vlidation des données des input
   const validationSchema = Yup.object().shape({
     username: Yup.string()
       .required("Pseudo requis")
@@ -43,6 +44,7 @@ const SignIn = () => {
     acceptTerms: Yup.bool().oneOf([true], "Veuillez accepter les conditions d'utilisation"),
   });
 
+  //inscription
   const onSubmit = async (values) => {
     const {confirmPassword, acceptTerms, ...data} = values;
 
