@@ -2,97 +2,135 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import axios from "axios";
-//j'appelle mon useContext
 import { useUser } from "../UserProvider";
+import * as Yup from 'yup';
+
 
 
 import './logIn.css';
 
 const LogIn = () => {
-    //gestion des erreurs (au départ il n'y en a pas)
     const [error, setError] = useState(null);
-    //pour arriver sur ma page perso et rester dessus
+    const [success, setSuccess] = useState(null);
     const navigator = useNavigate();
-    //je change l'état de mon utilisateur, suite à ma connection (non connecte à connecté) : je vais donc appeller mon hook personnalisé dans le provider)
     const { setUser } = useUser();
+
+    //schema de vlidation des données des input
+    const validationSchema = Yup.object().shape({
+      email: Yup.string()
+      .required("Email requis")
+      .email("Email invalide")
+      .test('Email existant', 'Aucun compte associé',
+      function (value) {
+        return new Promise ((resolve, reject) => {
+          axios.get(`${process.env.REACT_APP_API_URL}/user/email/${value}`)
+            .then((res) => {
+              if (res.response)
+              console.log('true')
+              resolve(true)
+            })
+            .catch((error) => {
+              if (error)
+              console.log(error)
+                resolve(false)
+            })
+        })
+      }
+    ),
+      password: Yup.string()
+        .required("Mot de passe requis")
+        .email("mot de passe invalide")
+    });
+
+    //connexion au profil
+    const onSubmit = async (values) => {
   
-  //je créé mon formulaire de validation, en précisant la valeur initial de mes objets
+      const response = await axios
+      .post(`${process.env.REACT_APP_API_URL}/user/login`, values)
+      .then(({ data: { credentials, id } }) => {
+        // quels attributs : qu'est ce que je vais envoyer une fois que l'utilisateur est connecté (j'attache le token)
+        setUser({
+          token: credentials,
+          id: id,
+        });
+        navigator(`/profil/${id}`);
+      })
+      .catch((err) => {
+        if (err && err.response) {
+        setError(err.response.data.message);
+        setSuccess(null);
+        }
+      });
+  
+      if (response && response.data.message) {
+        setError(null);
+        setSuccess(response.data.message);
+        formik.resetForm();
+      }
+    }
+  
+    //formulaire de validation
     const formik = useFormik ({
       initialValues: {
         email: "",
         password: "",
-      },
-      //on s'assure que les valeurs sont juste (ex: @)
-      // validateOnChange: false,
-      // //je créé mon schema de validation avec pour paramètre mes values : erreurs)
-      // validate: (values) => {
-      //   const errors = {};
-  
-      //   if (!values.email) {
-      //     error.email = "Requis";
-      //   } else if (
-      //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-      //   ) {
-      //     errors.email = "Email pas reconnu";
-      //   }
-      //   if (!values.password) {
-      //     errors.password = "Requis";
-      //   }
-      //   return errors;
-      // },
-      //lors de l'envoi de mon formulaire je renvoir les valeurs indiquées : je vérifie mon BE
-      onSubmit: (values) => {
-        axios
-          //j'appelle mon API et la route users (où est login?)
-          .post(`${process.env.REACT_APP_API_URL}/user/login`, values)
-          //je récupère (pour envoyer)les attributs propre à mon user: credentials se trouve dans le back
-          .then(({ data: { credentials, id } }) => {
-            // quels attributs : qu'est ce que je vais envoyer une fois que l'utilisateur est connecté (j'attache le token)
-            setUser({
-              token: credentials,
-              id: id,
-            });
-            //je récupère mon navigator pour dire où le client se retrouve?
-            navigator(`/profil/${id}`);
-          })
-          //gestion de l'erreur: message se trouve  dans le back
-          .catch(({ data: { message } }) => {
-            setError({message});
-          });
-      },
+      }, 
+      validateOnBlur: true,
+      onSubmit,
+      validationSchema: validationSchema,
     });
 
   
-  return (
-    <div className='logIn'>
-      <h1>CONNEXION</h1>
-      <form onSubmit={formik.handleSubmit} className='logIn-form'>
-        <div className="logIn-email">
-          <label>Email</label>
-          <input
-              type="email"
+    return (
+      <div className='logIn'>
+        <h1>CONNEXION</h1>
+        <form onSubmit={formik.handleSubmit} className='logIn-form'>
+          <div className="logIn-email">
+          <label htmlFor="email">Email</label>
+            <input
               name="email"
-              // id="email"
+              type="email"
+              className={
+                'form-control-logIn' +
+                (formik.errors.email && formik.touched.email ? ' is-invalid' : '')
+              }
               onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               value={formik.values.email}
-              placeholder="Votre E-mail"
+              placeholder="Adresse e-mail"
             />
-        </div>
-        <div className="logIn-password">
-          <label>Mot de passe</label>
-          <input
-              type="password"
+            <div className="invalid-feedback-logIn">
+              {formik.errors.email && formik.touched.email
+                ? formik.errors.email
+                : null}
+            </div>
+          </div>
+          <div className="logIn-password">
+          <label htmlFor="password">Mot de passe</label>
+            <input
               name="password"
-              // id="password"
+              type="password"
+              className={
+                'form-control-logIn' +
+                (formik.errors.password && formik.touched.password
+                  ? ' is-invalid'
+                  : '')
+              }
               onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               value={formik.values.password}
-              placeholder="Votre mot de passe"
+              placeholder="Mot de passe"
             />
-        </div>
-        <button type='submit'>Valider</button>
-      </form>
-    </div>
-  )
-}
+            <div className="invalid-feedback-logIn">
+              {formik.errors.password && formik.touched.password
+                ? formik.errors.password
+                : null}
+            </div>
+          </div>
+          <button type='submit'>Valider</button>
+        </form>
+      </div>
+    )
+  }
 
 export default LogIn;

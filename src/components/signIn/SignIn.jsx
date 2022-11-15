@@ -22,7 +22,7 @@ const SignIn = () => {
           return new Promise ((resolve, reject) => {
             axios.get(`${process.env.REACT_APP_API_URL}/user/username/${value}`)
               .then((res) => {
-                if (res.response.message)
+                if (res.response)
                 resolve(true)
               })
               .catch((error) => {
@@ -96,7 +96,7 @@ const SignIn = () => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.username}
-            placeholder="pseudo"
+            placeholder="Pseudo"
           /> 
           <div className="invalid-feedback">
             {formik.errors.username && formik.touched.username
@@ -116,7 +116,7 @@ const SignIn = () => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
-            placeholder="Adresse e-mail"
+            placeholder="Adresse email"
           />
           <div className="invalid-feedback">
             {formik.errors.email && formik.touched.email
