@@ -39,7 +39,6 @@ const LogIn = () => {
     ),
       password: Yup.string()
         .required("Mot de passe requis")
-        .email("mot de passe invalide")
     });
 
     //connexion au profil

@@ -1,0 +1,169 @@
+.content-title {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(202, 198, 198);
+    padding: 5px;
+}
+
+.title-icon {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.list-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 35px 10px 35px;
+}
+
+.list-item ul {
+    list-style: none;
+}
+
+.data-add {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.data-card-content input {
+    width: 180px;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.data-add button {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+@media screen and (min-width:768px) {
+    .content-title {
+        width: 70%;
+    }
+    
+    .title-icon {
+        width: 20%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .data-card-content input {
+        width: 220px;
+        height: 40px;
+        margin: 3px;
+        font-size: larger;
+    }
+    
+    .data-card-container button {
+        width: 40px;
+        height: 40px;
+        font-size: larger;
+    }
+
+    .data-card-container label {
+        font-size: x-large;
+    }
+
+    .data-card-content-list {
+        width: 70%;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width:1500px) {
+    .content-title {
+        width: 60%;    
+        justify-content: space-between;
+    }
+    
+    .title-icon {
+        width: 20%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .data-card-content input {
+        width: 250px;
+        height: 40px;
+        margin: 3px;
+        font-size: larger;
+    }
+    
+    .data-card-container button {
+        width: 40px;
+        height: 40px;
+        font-size: larger;
+    }
+
+    .data-card-container label {
+        font-size: x-large;
+    }
+
+    .data-card-content-list {
+        width: 70%;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width:1900px) {
+    .content-title {
+        width: 60%;    
+        justify-content: space-between;
+        font-size: larger;
+    }
+    
+    .title-icon {
+        width: 20%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .data-card-content input {
+        width: 320px;
+        height: 40px;
+        margin: 3px;
+        font-size: larger;
+    }
+    
+    .data-card-container button {
+        width: 40px;
+        height: 40px;
+        font-size: larger;
+    }
+
+    .data-card-container label {
+        font-size: xx-large;
+    }
+
+    .data-card-content-list {
+        width: 70%;
+        margin: auto;
+        font-size: xx-large;
+    }
+}
+
+
+
+
+
+
+
+
+

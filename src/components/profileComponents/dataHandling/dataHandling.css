@@ -1,0 +1,50 @@
+.data-block {
+    background: #f1f1f1;
+    word-break: break-all;
+    border: 1px solid rgb(202, 198, 198);
+}
+.data-block-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: smaller;
+    margin: 0 15px 10px 15px;
+}
+
+@media screen and (min-width:768px) {
+    .data-block {
+        width: 90%;
+        margin: auto;
+        font-size: larger;
+    }
+
+    .data-block-title {
+        font-size: large;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .data-block {
+        width: 80%;
+    }
+}
+
+
+@media screen and (min-width:1500px) {
+    .data-block {
+        width: 70%;
+        margin: auto;
+        font-size: x-large;
+    }
+
+    .data-block-title {
+        font-size: larger;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
