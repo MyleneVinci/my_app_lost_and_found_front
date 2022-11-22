@@ -92,4 +92,4 @@ return (
 )
 }
 
-export default PersonalData
+export default PersonalData;

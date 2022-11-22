@@ -23,11 +23,11 @@ const SignIn = () => {
             axios.get(`${process.env.REACT_APP_API_URL}/user/username/${value}`)
               .then((res) => {
                 if (res.response)
-                resolve(true)
+                resolve(false)
               })
               .catch((error) => {
                 if (error)
-                  resolve(false)
+                  resolve(true)
               })
           })
         }

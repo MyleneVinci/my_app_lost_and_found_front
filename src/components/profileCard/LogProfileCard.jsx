@@ -7,6 +7,7 @@ import PersonalData from '../profileComponents/personalData/PersonalData';
 import LostItems from '../profileComponents/LostItems';
 import FoundItems from '../profileComponents/FoundItems';
 import Conversations from '../profileComponents/Conversations';
+import DataHandling from '../profileComponents/dataHandling/DataHandling';
 
 import './logProfileCard.css';
 
@@ -39,20 +40,25 @@ const LogProfileCard = () => {
     
     return (
         <div className='profile'>
-        <h1>BONJOUR {adUser.username}</h1>
-        {!admin && <div className="profile-container">
-            <PersonalData />
-            <LostItems />
-            <FoundItems />
-            <Conversations />
-        </div> }
-        {admin && <div className="profile-container">
-            <PersonalData />
-        </div> }
-        <button onClick={handleDisconnect}>
-            <h4>Se déconnecter</h4>
-            <i className="fa-solid fa-xmark"></i>
+        <div className='profile-disconnect'>
+            <button onClick={handleDisconnect}>
+                <h4>Deconnexion</h4>
+                <i className="fa-solid fa-xmark"></i>
             </button>
+        </div>
+        <h1>BONJOUR {adUser.username}</h1>
+        {!admin && 
+            <div className="profile-container">
+                <PersonalData />
+                <LostItems />
+                <FoundItems />
+                <Conversations />
+            </div> }
+        {admin && 
+            <div className="profile-container">
+                <PersonalData />
+                <DataHandling />
+            </div> }
         </div>
     );
 }
