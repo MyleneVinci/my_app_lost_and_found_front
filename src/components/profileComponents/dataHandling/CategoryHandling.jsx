@@ -7,7 +7,7 @@ const CategoryHandling = () => {
 
 
     //gestion des appels a l'api
-    const url = `${process.env.REACT_APP_API_URL}/category`
+    const url = `${process.env.REACT_APP_API_URL}/categories`
 
 
     //affichage des données de la base de données

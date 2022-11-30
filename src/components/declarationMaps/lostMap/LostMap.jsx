@@ -47,8 +47,8 @@ const AddMArker = () => {
             map.addLayer(marker)
 
             // affiche les coordonnées au click de la position sur la carte dans les inputs
-            document.querySelector("#lat").value = position.lat
-            document.querySelector("#lon").value = position.lng
+            document.querySelector("#latitude").value = position.lat
+            document.querySelector("#longitude").value = position.lng
         }
     });  
 };    
@@ -95,20 +95,6 @@ const MyLocation = () => {
 
     return (
         <div>
-            <div className="form">
-                <form action="">
-                    <input 
-                    id='lat'
-                    type="text"
-                    placeholder="latitude"
-                        />
-                    <input 
-                    id='lon'
-                    type="text"
-                    placeholder="longitude"
-                />
-                </form>
-            </div>
             <MapContainer center={[43.296482, 5.36978]} zoom={13} scrollWheelZoom={false}
             > 
                 <TileLayer

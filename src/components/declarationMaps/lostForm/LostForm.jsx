@@ -1,47 +1,248 @@
-import React from 'react'
-import carte from '../../../assets/carte.jpg'
+import React, { useState, useEffect} from 'react';
+import LostMap from '../lostMap/LostMap';
+import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useUser } from '../../UserProvider';
+import {useRef} from 'react';
+
 
 import './lostForm.css'
 
 const LostForm = () => {
-  return (
-    <div>
-        <form classname='form' action="">
-            <div className="select-content">
-                <label htmlFor="">Objet</label>
-                <hr />
-                <select>
-                    <option value="">Type</option>
-                </select>
-                <select>
-                    <option value="">Catégorie</option>
-                </select>
-                <select>
-                    <option value="">Sous-catégorie</option>
-                </select>
-                <select>
-                    <option value="">Détail</option>
-                </select>
-            </div>
-            <div className="location-content">
-                <label htmlFor="">Localisation</label>
-                <hr />
-                <img src={carte} alt="" />            
-            </div>
-            <div className="file-content">
-                <label htmlFor="">Photo</label>
-                <hr />
-                <input type="file" /> 
-            </div>
-            <div className="description-content">
-                <label htmlFor="">Description</label>
-                <hr />
-                <textarea rows="5" cols="80" placeholder='Ajouter une description'/> 
-            </div>
-            <button>Valider</button>
-          </form>    
+    const inputRefLat = useRef(null);
+    const inputRefLon = useRef(null);
+
+    //récupère les users
+    const { user} = useUser(true);
+    const [adUser, setAdUser] = useState([]);
+    const { id }= useParams();
+
+    useEffect(() => {
+        axios
+            .get(`${process.env.REACT_APP_API_URL}/user/${id}`)
+            .then((res) => res.data)
+            .then((data) => setAdUser(data))
+    }, [id])
+
+// let userId = adUser.id
+
+
+    //afficher les données de la base de données
+    const [getTypes, setGetTypes] = useState([]);
+    const [getCategories, setGetCategories] = useState([])
+    const [getSubcategories, setGetSubcategories] = useState([])
+    const [getDetails, setGetDetails] = useState([])
+    const url = `${process.env.REACT_APP_API_URL}`
+
+    useEffect(() => {
+        axios
+            .get(url + '/types')
+            .then((res) => setGetTypes(res.data))
+    }, [])
+
+    useEffect(() => {
+        axios
+            .get(url + '/categories')
+            .then((res) => setGetCategories(res.data))
+    }, [])
+
+    useEffect(() => {
+        axios
+            .get(url + '/subcategories')
+            .then((res) => setGetSubcategories(res.data))
+    }, [])
+    
+    useEffect(() => {
+        axios
+            .get(url + '/details')
+            .then((res) => setGetDetails(res.data))
+    }, [])
+
+    //post des données
+    const [item_status, setItem_status] = useState("perdu")
+    const [date, setDate] = useState("")
+    const [type_id, setType_id] = useState("");
+    const [category_id, setCategory_id] = useState("")
+    const [subcategory_id, setSubcategory_id] = useState("")
+    const [subcategory_detail_id, setSubcategory_detail_id] = useState("")
+    const [text_description, setText_description] = useState("")
+    const [picture, setPicture] = useState("")
+    const [user_id, setUser_id] = useState(id)
+    const [latitude, setLatitude] = useState("")
+    const [longitude, setLongitude] = useState("")
+
+
+
+
+    const handleSubmit = async () => {
+        const formData = new FormData();
+        formData.append("item_status", item_status);
+        formData.append("date", date);
+        formData.append("type_id", type_id);
+        formData.append("category_id", category_id);
+        formData.append("subcategory_id", subcategory_id);
+        formData.append("subcategory_detail_id", subcategory_detail_id);
+        formData.append("text_description", text_description);
+        formData.append("picture", picture);
+        formData.append("user_id", user_id);
+        formData.append("latitude", inputRefLat.current.value);
+        formData.append("longitude", inputRefLon.current.value);
+        await axios.post(
+          `${process.env.REACT_APP_API_URL}/ad/addad`,
+          formData
+        )                .then((response)=>{
+            if (response.status===200){
+                console.log('ca marche')
+                alert("Vous avez créé une nouvelle annonce d'objet perdu.");
+            }
+        })
+        .catch((err)=>{
+            console.log(err);
+            const HTTPError = err.response.status;
+            if (HTTPError) {
+                console.log(HTTPError)
+            }
+        });
+        console.log(inputRefLat.current.value);
+        console.log(inputRefLon.current.value);
+;
+        // navigate(`/administrateur/:id`);
+      };
+    
+
+
+    return (
+        <div>
+            {!user && <p>Veuillez vous connecter pour créer une annonce</p>}
+                <div className="select-content">
+                    <label htmlFor="">Objet</label>
+                    <hr />
+                    <input 
+                        type="text"
+                        name="user_id"
+                        value={user_id}
+                        id="user_id"
+                        onChange={(event) => setUser_id(event.target.value)}
+                    /> 
+                    <input 
+                        type="text"
+                        name="item_status"
+                        value="perdu"
+                        id="item_status"
+                        onChange={(event) => setItem_status(event.target.value)}
+                    /> 
+                    <input 
+                        type="date"
+                        name="date"
+                        value={date}
+                        id="date"
+                        onChange={(event) => setDate(event.target.value)}
+
+                    /> 
+                    <select
+                        onChange={(event) => setType_id(event.target.value)}
+                        value={type_id}
+                        id="type_id"  
+                        name="type_id"        
+                    >
+                        <option>Type</option>
+                        {getTypes.map((type, index) => (
+                            <option key={index} value={type.id}>
+                                {type.type}
+                            </option>
+                        ))}
+                    </select>
+                    <select
+                        onChange={(event) => setCategory_id(event.target.value)}
+                        value={category_id}
+                        id="category_id" 
+                        name="category_id"         
+                        
+                    >
+                        <option>Catégorie</option>
+                        {getCategories.map((category, index) => (
+                            <option key={index} value={category.id}>
+                                {category.category}
+                            </option>
+                        ))}
+                    </select>
+                    <select
+                        onChange={(event) => setSubcategory_id(event.target.value)}
+                        value={subcategory_id}
+                        id="subcategory_id"          
+                        name="subcategory_id"          
+                    >
+                        <option>Sous-catégorie</option>
+                        {getSubcategories.map((subcategory, index) => (
+                            <option key={index} value={subcategory.id}>
+                                {subcategory.subcategory}
+                            </option>
+                        ))}
+                    </select>
+                    <select
+                        onChange={(event) => setSubcategory_detail_id(event.target.value)}
+                        value={subcategory_detail_id}
+                        id="subcategory_detail_id"                          
+                        name="subcategory_detail_id"                          
+                    >
+                        <option>Détail</option>
+                        {getDetails.map((detail, index) => (
+                            <option key={index} value={detail.id}>
+                                {detail.detail}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div className="location-content">
+                    <label htmlFor="">Localisation</label>
+                    <hr />
+                    <div>
+                    <input 
+                        type="text"
+                        id="latitude"
+                        name="latitude"
+                        placeholder="latitude"
+                        ref={inputRefLat}
+
+                    /> 
+                    <input 
+                        type="text"
+                        id="longitude"
+                        name="longitude"
+                        placeholder="longitude"
+                        ref={inputRefLon}
+                    /> 
+                </div>
+                    <LostMap />
+                </div>
+                <div className="file-content">
+                    <label htmlFor="">Photo</label>
+                    <hr />
+                    <input 
+                        name='picture'
+                        type="file" 
+                        id="picture"
+                        // value={picture}
+                        onChange={(event) => setPicture(event.target.files[0])}                      
+                    /> 
+                </div>
+                <div className="description-content">
+                    <label htmlFor="">Description</label>
+                    <hr />
+                    <textarea 
+                        rows="5" cols="80" 
+                        placeholder='Ajouter une description'
+                        id="text_description"
+                        name="text_description"
+                        value={text_description}
+                        onChange={(event) => setText_description(event.target.value)}
+                    /> 
+                </div>
+                <button type="submit" onClick={handleSubmit}>
+                    Valider
+                </button>
         </div>
-  )
+    )
 }
 
-export default LostForm
+export default LostForm;

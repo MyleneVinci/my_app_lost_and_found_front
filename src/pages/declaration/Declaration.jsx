@@ -68,7 +68,7 @@ const Declaration = () => {
               <hr />
               <textarea rows="5" cols="33" placeholder='Ajouter une description'/> 
             </div>
-            <button>Valider</button>
+            <button className='button'>Valider</button>
           </div>
         </div>
       </div>

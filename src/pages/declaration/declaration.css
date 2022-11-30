@@ -96,7 +96,7 @@
     height: 100%;
   }
 
-  .content button {
+  .button {
     margin: 30px;
     font-size: large;
     padding: 0 5px 0 5px;
@@ -134,7 +134,7 @@
         font-size: x-large;
     }
     
-    .content button {
+    .button {
         font-size: larger;
         padding: 0 10px 0 10px;
     }
@@ -186,7 +186,7 @@
 
     }
 
-    .content button {
+    .button {
         font-size: xx-large;
         padding: 0 10px 0 10px;
     }
