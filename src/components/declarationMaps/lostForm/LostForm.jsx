@@ -1,16 +1,12 @@
-import React, { useState, useEffect} from 'react';
-import LostMap from '../lostMap/LostMap';
+import React, { useState, useEffect, useRef} from 'react';
+import DeclarationMap from '../declarationMap/DeclarationMap';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useUser } from '../../UserProvider';
-import {useRef} from 'react';
-
 
 import './lostForm.css'
 
 const LostForm = () => {
-    const inputRefLat = useRef(null);
-    const inputRefLon = useRef(null);
 
     //récupère les users
     const { user} = useUser(true);
@@ -23,8 +19,6 @@ const LostForm = () => {
             .then((res) => res.data)
             .then((data) => setAdUser(data))
     }, [id])
-
-// let userId = adUser.id
 
 
     //afficher les données de la base de données
@@ -58,7 +52,12 @@ const LostForm = () => {
             .then((res) => setGetDetails(res.data))
     }, [])
 
+
     //post des données
+    const navigate = useNavigate();
+    const inputRefLat = useRef(null);
+    const inputRefLon = useRef(null);
+
     const [item_status, setItem_status] = useState("perdu")
     const [date, setDate] = useState("")
     const [type_id, setType_id] = useState("");
@@ -68,11 +67,6 @@ const LostForm = () => {
     const [text_description, setText_description] = useState("")
     const [picture, setPicture] = useState("")
     const [user_id, setUser_id] = useState(id)
-    const [latitude, setLatitude] = useState("")
-    const [longitude, setLongitude] = useState("")
-
-
-
 
     const handleSubmit = async () => {
         const formData = new FormData();
@@ -87,45 +81,46 @@ const LostForm = () => {
         formData.append("user_id", user_id);
         formData.append("latitude", inputRefLat.current.value);
         formData.append("longitude", inputRefLon.current.value);
+
         await axios.post(
-          `${process.env.REACT_APP_API_URL}/ad/addad`,
-          formData
-        )                .then((response)=>{
+            `${process.env.REACT_APP_API_URL}/ad/addad`,
+            formData
+        )                
+        .then((response)=>{
             if (response.status===200){
-                console.log('ca marche')
                 alert("Vous avez créé une nouvelle annonce d'objet perdu.");
+                    navigate(`/declaration/${id}`);
             }
         })
         .catch((err)=>{
-            console.log(err);
-            const HTTPError = err.response.status;
-            if (HTTPError) {
-                console.log(HTTPError)
+            if (err) {
+                alert("impossible de créer l'annonce")
             }
         });
-        console.log(inputRefLat.current.value);
-        console.log(inputRefLon.current.value);
-;
-        // navigate(`/administrateur/:id`);
-      };
-    
+    };
 
 
     return (
         <div>
-            {!user && <p>Veuillez vous connecter pour créer une annonce</p>}
+            {!user && 
+                <div>
+                    <p>Veuillez vous connecter pour créer une annonce</p>
+                    <a href="/enregistrement">Connexion</a>
+                </div>
+            }
+            <form onSubmit={handleSubmit}>
                 <div className="select-content">
                     <label htmlFor="">Objet</label>
                     <hr />
                     <input 
-                        type="text"
+                        type="hidden"
                         name="user_id"
                         value={user_id}
                         id="user_id"
                         onChange={(event) => setUser_id(event.target.value)}
                     /> 
                     <input 
-                        type="text"
+                        type="hidden"
                         name="item_status"
                         value="perdu"
                         id="item_status"
@@ -198,22 +193,25 @@ const LostForm = () => {
                     <hr />
                     <div>
                     <input 
-                        type="text"
-                        id="latitude"
+                        type="hidden"
+                        id="latLost"
                         name="latitude"
                         placeholder="latitude"
                         ref={inputRefLat}
 
                     /> 
                     <input 
-                        type="text"
-                        id="longitude"
+                        type="hidden"
+                        id="longLost"
                         name="longitude"
                         placeholder="longitude"
                         ref={inputRefLon}
                     /> 
                 </div>
-                    <LostMap />
+                    <DeclarationMap 
+                        latitude="latLost"
+                        longitude="longLost"
+                    />
                 </div>
                 <div className="file-content">
                     <label htmlFor="">Photo</label>
@@ -222,7 +220,6 @@ const LostForm = () => {
                         name='picture'
                         type="file" 
                         id="picture"
-                        // value={picture}
                         onChange={(event) => setPicture(event.target.files[0])}                      
                     /> 
                 </div>
@@ -238,9 +235,15 @@ const LostForm = () => {
                         onChange={(event) => setText_description(event.target.value)}
                     /> 
                 </div>
-                <button type="submit" onClick={handleSubmit}>
-                    Valider
-                </button>
+                {!user ? 
+                    <button disabled>
+                        Valider
+                    </button> : 
+                    <button type="submit">
+                        Valider
+                    </button> 
+                }
+            </form>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer, useMap, Marker, Popup, Tooltip, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, useMap, useMapEvents } from 'react-leaflet';
 import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
 import L from "leaflet";
 
@@ -9,10 +9,10 @@ import "leaflet-easybutton/src/easy-button.js";
 import "leaflet-easybutton/src/easy-button.css";
 import "font-awesome/css/font-awesome.min.css";
 
-import './lostMap.css'
+import './declarationMap.css'
 
 
-const LostMap = () => {
+const DeclarationMap = ({latitude, longitude}) => {
 
     //icone personnalisée
     const icon = L.icon({
@@ -47,8 +47,11 @@ const AddMArker = () => {
             map.addLayer(marker)
 
             // affiche les coordonnées au click de la position sur la carte dans les inputs
-            document.querySelector("#latitude").value = position.lat
-            document.querySelector("#longitude").value = position.lng
+            document.querySelector(`#${latitude}`).value = position.lat.toFixed(6)
+            document.querySelector(`#${longitude}`).value = position.lng.toFixed(6)
+            // document.querySelector("#latFound").value = position.lat.toFixed(6)
+            // document.querySelector("#longFound").value = position.lng.toFixed(6)
+
         }
     });  
 };    
@@ -65,9 +68,6 @@ const LeafletgeoSearch = (e) => {
                 showMarker: false,
                 autoClose: true,
                 searchLabel: 'Entrer une addresse'
-                // marker: {
-                //   icon
-                // },
             });
         
             map.addControl(searchControl);
@@ -76,6 +76,7 @@ const LeafletgeoSearch = (e) => {
         }, []);
 }
 
+//geolocalisation du user
 const MyLocation = () => {
     const [position, setPosition] = useState(null);
     const map = useMap()
@@ -109,4 +110,4 @@ const MyLocation = () => {
     )
 }
 
-export default LostMap
+export default DeclarationMap;
