@@ -49,9 +49,6 @@ const AddMArker = () => {
             // affiche les coordonnées au click de la position sur la carte dans les inputs
             document.querySelector(`#${latitude}`).value = position.lat.toFixed(6)
             document.querySelector(`#${longitude}`).value = position.lng.toFixed(6)
-            // document.querySelector("#latFound").value = position.lat.toFixed(6)
-            // document.querySelector("#longFound").value = position.lng.toFixed(6)
-
         }
     });  
 };    
@@ -95,7 +92,7 @@ const MyLocation = () => {
     }
 
     return (
-        <div>
+        <div className="mapContainer">
             <MapContainer center={[43.296482, 5.36978]} zoom={13} scrollWheelZoom={false}
             > 
                 <TileLayer

@@ -82,7 +82,7 @@ const LogIn = () => {
   
     return (
       <div className='logIn'>
-        <h1>CONNEXION</h1>
+        {/* <h1>CONNEXION</h1> */}
         <form onSubmit={formik.handleSubmit} className='logIn-form'>
           <div className="logIn-email">
           <label htmlFor="email">Email</label>

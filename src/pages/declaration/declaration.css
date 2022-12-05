@@ -1,5 +1,5 @@
 .declaration {
-    width: 70%;
+    width: 95%;
     margin: auto;
     color: var(--main-color);
     margin-bottom: 100px;
@@ -16,12 +16,12 @@
   .declaration-container {
     display: flex;
     flex-direction: column;
-    position: relative;
     width: 100%;
     box-sizing: content-box;
     background: #f1f1f1;
     word-break: break-all;
     border: 1px solid rgb(202, 198, 198);
+
   }
   
   /* onglet */
@@ -80,7 +80,9 @@
 
   .content label {
     padding: 0px 0 5px 0px;
-    margin-top: 10px;
+    margin-top: 20px;
+    font-size: x-large;
+    font-weight: bold;
   }
 
   .content hr {
@@ -121,6 +123,10 @@
   }
 
 @media screen and (min-width: 768px) {
+  .declaration-container {
+    width: 80%;
+    margin: auto;
+  }
     .declaration h1 {
         margin-bottom: 40px;
     }
@@ -161,8 +167,8 @@
 }
 
 @media screen and (min-width:1200px) {
-    .declaration {
-        width: 50%;
+    .declaration-container {
+        width: 70%;
     }
 
     .declaration h1 {
@@ -214,10 +220,13 @@
     .file-content input {
         margin: auto;
         font-size: x-large;
+        margin-bottom: 20px;
     }
 
     .description-content textarea {
         font-size: x-large;
+        width: 60%;
+        height: 150px;
     }
 }
 

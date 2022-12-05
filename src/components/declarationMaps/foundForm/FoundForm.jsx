@@ -237,10 +237,10 @@ const FoundForm = () => {
                     /> 
                 </div>
                 {!user ? 
-                    <button disabled>
+                    <button className='form-button' disabled>
                         Valider
                     </button> : 
-                    <button type="submit">
+                    <button className='form-button' type="submit">
                         Valider
                     </button> 
                 }

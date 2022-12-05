@@ -227,7 +227,6 @@ const LostForm = () => {
                     <label htmlFor="">Description</label>
                     <hr />
                     <textarea 
-                        rows="5" cols="80" 
                         placeholder='Ajouter une description'
                         id="text_description"
                         name="text_description"
@@ -236,10 +235,10 @@ const LostForm = () => {
                     /> 
                 </div>
                 {!user ? 
-                    <button disabled>
+                    <button className='form-button' disabled>
                         Valider
                     </button> : 
-                    <button type="submit">
+                    <button className='form-button' type="submit">
                         Valider
                     </button> 
                 }
