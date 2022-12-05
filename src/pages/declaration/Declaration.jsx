@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import LostForm from '../../components/declarationMaps/lostForm/LostForm';
+import FoundForm from '../../components/declarationMaps/foundForm/FoundForm';
 
 import './declaration.css';
 
@@ -32,71 +34,13 @@ const Declaration = () => {
           <div
             className={toggleState === 1 ? "content  active-content" : "content"}
           >
-            <h3>Objet</h3>
-            <hr />
-            <div className="select-content">
-              <select>
-                <option value="">Catégorie</option>
-              </select>
-              <select>
-                <option value="">Type</option>
-              </select>
-            </div>
-            <h3>Localisation</h3>
-            <hr />
-            <div className="location-content">
-              <input type="text" placeholder='Adresse'/> 
-              <div>
-                <p>ou</p>
-                <p>Localisez-moi</p>
-              </div>
-            </div>
-            <div className="file-content">
-              <h3>Photo</h3>
-              <hr />
-              <input type="file" /> 
-            </div>
-            <div className="description-content">
-              <h3>Description</h3>
-              <hr />
-              <textarea rows="5" cols="33" placeholder='Ajouter une description'/> 
-            </div>
-            <button>Valider</button>
+            {toggleState === 1 ? <LostForm /> : null}
           </div>
 
           <div
             className={toggleState === 2 ? "content  active-content" : "content"}
           >
-            <h3>Objet</h3>
-            <hr />
-            <div className="select-content">
-              <select>
-                <option value="">Catégorie</option>
-              </select>
-              <select>
-                <option value="">Type</option>
-              </select>
-            </div>
-            <h3>Localisation</h3>
-            <hr />
-            <div className="location-content">
-              <input type="text" placeholder='Adresse'/> 
-              <div>
-                <p>ou</p>
-                <p>Localisez-moi</p>
-              </div>
-            </div>
-            <div className="file-content">
-              <h3>Photo</h3>
-              <hr />
-              <input type="file" /> 
-            </div>
-            <div className="description-content">
-              <h3>Description</h3>
-              <hr />
-              <textarea rows="5" cols="33" placeholder='Ajouter une description'/> 
-            </div>
-            <button>Valider</button>
+            {toggleState === 2 ? <FoundForm /> : null}
           </div>
         </div>
       </div>

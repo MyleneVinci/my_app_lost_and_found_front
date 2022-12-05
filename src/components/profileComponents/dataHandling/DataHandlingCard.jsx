@@ -57,7 +57,7 @@ const DataHandlingCard = ({data, getData,  postData, setPostData, dataPost, data
                                     getData.map((item) => (
                                         <div className='list-item' key={item.id}>
                                             <ul>
-                                                <li>{item.type}</li>
+                                                <li>{item.type || item.category || item.subcategory || item.detail}</li>
                                             </ul>
                                             <FaMinusCircle onClick={() =>dataDelete(item.id)} />
                                         </div>

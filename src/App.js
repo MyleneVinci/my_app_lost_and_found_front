@@ -26,6 +26,7 @@ function App() {
         <Route exact  path='/connexion' element={<LogIn />} />
         <Route exact  path='/inscription' element={<SignIn />} />
         <Route exact  path='/declaration' element={<Declaration />} />
+        <Route exact  path='/declaration/:id' element={<Declaration />} />
         <Route exact  path='/profil' element={<Profile />} />
         <Route exact  path='/profil/:id' element={<LogProfileCard />} />
         <Route exact  path='/enregistrement' element={<Log />} />

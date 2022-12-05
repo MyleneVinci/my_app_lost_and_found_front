@@ -32,7 +32,8 @@ const LogProfileCard = () => {
             .then((res) => res.data)
             .then((data) => setAdUser(data))
     }, [id])
-    
+
+
     let admin = false;
     if (adUser.isAdmin === 1) {
         admin = true;  

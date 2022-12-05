@@ -1,0 +1,48 @@
+.item-options, .item-location, .item-picture, .item-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.select-content input, select  {
+    width: 100%;
+    height: 45px;
+    margin: auto;
+    margin-bottom: 5px;
+    font-size: larger;
+    padding: 6px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 5.5px;
+}
+
+.file-content input {
+    margin-bottom: 20px;
+}
+
+.description-content textarea {
+    width:80%;
+    height: 10vh;
+}
+
+.form-button {
+    margin: auto;
+    margin-top: 40px;
+    width: 80%;
+    padding: 0 10px 5px 10px;
+    font-size: x-large;
+    border-radius: 3px;
+    color: var(--second-color);
+    background-color: var(--third-color);
+}
+
+@media screen and (min-width: 1500px) {
+    .form-button {
+        width: 60%;
+    }
+}
+

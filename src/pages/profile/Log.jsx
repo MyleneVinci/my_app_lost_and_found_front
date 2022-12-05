@@ -15,20 +15,20 @@ const Log = () => {
 
     return (
         <div className='log'>
-        <h1></h1>
+        <h1>PROFIL</h1>
         <div className="log-container">
             <div className="bloc-tabs">
             <button
                 className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
                 onClick={() => toggleTab(1)}
             >
-                INSCRIPTION
+                Inscription
             </button>
             <button
                 className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
                 onClick={() => toggleTab(2)}
             >
-                CONNEXION
+                Connexion
             </button>
             </div>
 

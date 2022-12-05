@@ -4,7 +4,9 @@ import './mapRoom.css';
 
 const MapRoom = () => {
   return (
-    <div>MapRoom</div>
+    <div>
+      maproom
+    </div>
   )
 }
 

@@ -117,7 +117,7 @@ const Navbar = () => {
                         <NavLink to='/' className={(navData) => 
                             navData.isActive ? "selected" : "navigation-link"
                             }><FaHome  /></NavLink>
-                        <NavLink to='/declaration' className={(navData) => 
+                        <NavLink to={`/declaration/${user.id}`} className={(navData) => 
                             navData.isActive ? "selected" : "navigation-link"
                             }><FaRegEdit  /></NavLink>
                         <NavLink to='/carte' className={(navData) => 
@@ -143,7 +143,7 @@ const Navbar = () => {
                                 <FaHome  />
                                 <p>Accueil</p>
                             </NavLink>
-                            <NavLink to='/declaration' className={(navData) => 
+                            <NavLink to={`/declaration/${user.id}`} className={(navData) => 
                             navData.isActive ? "selected" : "navigation-link"
                             }>
                                 <FaRegEdit  />

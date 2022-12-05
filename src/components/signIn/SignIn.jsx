@@ -78,7 +78,7 @@ const SignIn = () => {
 
   return (
     <div className='signIn'>
-      <h1>INSCRIPTION</h1>
+      {/* <h1>INSCRIPTION</h1> */}
       <div>{ !error && success ? success : ""}</div>
       <div>{ !success && error ? error : ""}</div>
       <form onSubmit={formik.handleSubmit} className='signIn-form'>
