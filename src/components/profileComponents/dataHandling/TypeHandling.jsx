@@ -38,7 +38,6 @@ const TypeHandling = () => {
             .then((result) => {
                 if(result.status === 201) {
                     alert("Vous avez rajouté un type");
-                    setPostType('');
                 }
             })
             .catch((error) => {
@@ -46,6 +45,7 @@ const TypeHandling = () => {
                     alert("les données saisies sont invalides")
                 }
             });
+            setPostType('')
     }
 
     // suppression d'une donnée de la base de données

@@ -1,0 +1,9 @@
+.leaflet-container {
+    width: 50%;
+    height: 50vh;
+  }
+
+  .mapContainer {
+    z-index: 0;
+    margin-bottom: 20px;
+  }

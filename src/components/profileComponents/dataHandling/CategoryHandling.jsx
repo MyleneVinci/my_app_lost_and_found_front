@@ -38,7 +38,6 @@ const CategoryHandling = () => {
             .then((result) => {
                 if(result.status === 201) {
                     alert("Vous avez rajouté une catégorie");
-                    setPostCategory('');
                 }
             })
             .catch((error) => {
@@ -46,6 +45,7 @@ const CategoryHandling = () => {
                     alert("les données saisies sont invalides")
                 }
             });
+            setPostCategory('');
     }
 
     // suppression d'une donnée de la base de données
