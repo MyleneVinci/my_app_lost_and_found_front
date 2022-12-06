@@ -38,7 +38,6 @@ const SubcategoryHandling = () => {
             .then((result) => {
                 if(result.status === 201) {
                     alert("Vous avez rajouté une sous-catégorie");
-                    setPostSubcategory('');
                 }
             })
             .catch((error) => {
@@ -46,6 +45,7 @@ const SubcategoryHandling = () => {
                     alert("les données saisies sont invalides")
                 }
             });
+            setPostSubcategory('');
     }
 
     // suppression d'une donnée de la base de données

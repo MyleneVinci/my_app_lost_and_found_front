@@ -38,7 +38,6 @@ const DetailHandling = () => {
             .then((result) => {
                 if(result.status === 201) {
                     alert("Vous avez rajouté un détail");
-                    setPostDetail('');
                 }
             })
             .catch((error) => {
@@ -46,6 +45,7 @@ const DetailHandling = () => {
                     alert("les données saisies sont invalides")
                 }
             });
+            setPostDetail('');
     }
 
     // suppression d'une donnée de la base de données

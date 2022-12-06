@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from 'react-leaflet';
 import L from "leaflet";
+import axios from 'axios';
 
 import "leaflet/dist/leaflet.css";
 import "leaflet-easybutton/src/easy-button.js";
@@ -23,6 +24,16 @@ const MapRoom = () => {
 
 
     //affichage des coordonnées de toutes les annonces
+    const url = `${process.env.REACT_APP_API_URL}/ad/filter`
+    const [getAd, setGetAd] = useState([]);
+
+    useEffect(() => {
+      axios
+          .get(url)
+          .then((res) => setGetAd(res.data))
+  }, [])
+
+  
 
 
     return (
@@ -33,11 +44,18 @@ const MapRoom = () => {
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <Marker position={[43.296482, 5.36978]}>
+
+              {getAd && getAd.map((ad, index) => (
+                <Marker key={index} position={[ad.latitude, ad.longitude]} icon={icon}>
                   <Popup>
-                    Test
+                    {ad.date} <br />
+                    {ad.item_status} <br />
+                    {ad.username} <br />
+                    {ad.category}
                   </Popup>
-                </Marker>
+              </Marker>
+              
+              ))}
             </MapContainer>
         </div>
     )
