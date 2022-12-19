@@ -120,16 +120,15 @@ const newFormatDate = (date) => {
                 .filter(ad => ad.item_status === 'perdu')
                 .map((ad, index) => (
                   <Marker key={index} position={[ad.latitude, ad.longitude]} icon={getLostMarkerIcon(ad.type)}>
-                    <Popup className="popup">
+                    <Popup>
                       Annonce n° {index + 1} <br />
                       Publiée le  {newFormatDate(ad.date)} par {ad.username} <br />
                       {/* Concerne : <br /> */}
                       Type : {ad.category} <br /> 
                       Catégorie : {ad.subcategory} <br /> 
-                      Détail supplémentaire : {ad.detail}  <br /> 
+                      Détail supplémentaire : {ad.detail}  <br />  
                       <img src={`${process.env.REACT_APP_UPLOADS}/${ad.picture}`}  alt="photo de l'objet de l'annonce" /> <br />
                       {ad.text_description}
-
                     </Popup>
                   </Marker>
                 ))}

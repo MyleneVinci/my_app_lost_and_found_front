@@ -1,16 +1,10 @@
-.mapRoomMapContainer {
+.mapRoomMapContainer .leaflet-container {
   width: 95%;
-  margin: auto;
-}
-
-.leaflet-container {
-  width: 100%;
   height: 50vh;
   margin: auto;
   margin-bottom: 100px;
   z-index: 0;
 
-  border: 3px solid #ced4da;
 }
 
 .mapRoomMapContainer h1 {
@@ -26,7 +20,7 @@
 }
 
 .legend h2, .map h2 {
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 20px;
   margin-left: 15px;
 }
@@ -82,6 +76,7 @@
   justify-content:space-around;
   flex-wrap: wrap;
   margin-bottom: 30px;
+  
 }
 
 .icon-legend {
@@ -91,35 +86,6 @@
   margin-bottom: 10px;
 }
 
-.map img {
-  width: 100%;
-}
-
-@media screen and (min-width:768px) {
-  .mapRoomMapContainer {
-    width: 80%;
-  }
-  
-  .mapRoomMapContainer h2, h3 {
-    font-size: xx-large;
-  }
-  
-}
-
-@media screen and (min-width:1200px) {
-  .mapRoomMapContainer {
-    width: 70%;
-  }
-  
-  .mapRoomMapContainer h1 {
-    font-size: 50px;
-  }
-
-  .mapRoomMapContainer h2, h3 {
-    font-size: xx-large;
-  }
-  
-}
 
 
 
