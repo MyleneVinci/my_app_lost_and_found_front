@@ -28,21 +28,21 @@ const createIcon = (url) => {
 }
 
 const getLostMarkerIcon = (type) => {
-  if(type === 'Documents officiels') return   createIcon('https://api.geoapify.com/v1/icon/?type=material&color=%23f90909&size=large&icon=id-card&iconType=awesome&textSize=small&apiKey=f8ac281013a6496a9d80af7e23b97807')
-  if(type === 'Effets personnels') return   createIcon('https://api.geoapify.com/v1/icon/?type=material&color=%23f90909&size=large&icon=key&iconType=awesome&textSize=small&apiKey=f8ac281013a6496a9d80af7e23b97807')
-  if(type === 'Portefeuille / Argent') return   createIcon('https://api.geoapify.com/v1/icon/?type=material&color=%23f90909&size=large&icon=euro-sign&iconType=awesome&textSize=small&apiKey=f8ac281013a6496a9d80af7e23b97807')
-  if(type === 'Animaux') return   createIcon('https://api.geoapify.com/v1/icon/?type=material&color=%23f90909&size=large&icon=paw&iconType=awesome&textSize=small&apiKey=f8ac281013a6496a9d80af7e23b97807')
-  if(type === 'Enfants') return   createIcon('https://api.geoapify.com/v1/icon/?type=material&color=%23f90909&size=large&icon=baby&iconType=awesome&textSize=small&apiKey=f8ac281013a6496a9d80af7e23b97807')
-  if(type === 'Autre') return   createIcon('https://api.geoapify.com/v1/icon/?type=material&color=%23f90909&size=large&icon=exclamation&iconType=awesome&textSize=small&apiKey=f8ac281013a6496a9d80af7e23b97807')
+  if(type === 'Documents officiels') return   createIcon(`https://api.geoapify.com/v1/icon/?type=material&color=%23f90909&size=large&icon=id-card&iconType=awesome&textSize=small&apiKey=${process.env.REACT_APP_GEOAPIFY_API_KEY}`)
+  if(type === 'Effets personnels') return   createIcon(`https://api.geoapify.com/v1/icon/?type=material&color=%23f90909&size=large&icon=key&iconType=awesome&textSize=small&apiKey=${process.env.REACT_APP_GEOAPIFY_API_KEY}`)
+  if(type === 'Portefeuille / Argent') return   createIcon(`https://api.geoapify.com/v1/icon/?type=material&color=%23f90909&size=large&icon=euro-sign&iconType=awesome&textSize=small&apiKey=${process.env.REACT_APP_GEOAPIFY_API_KEY}`)
+  if(type === 'Animaux') return   createIcon(`https://api.geoapify.com/v1/icon/?type=material&color=%23f90909&size=large&icon=paw&iconType=awesome&textSize=small&apiKey=${process.env.REACT_APP_GEOAPIFY_API_KEY}`)
+  if(type === 'Enfants') return   createIcon(`https://api.geoapify.com/v1/icon/?type=material&color=%23f90909&size=large&icon=baby&iconType=awesome&textSize=small&apiKey=${process.env.REACT_APP_GEOAPIFY_API_KEY}`)
+  if(type === 'Autre') return   createIcon(`https://api.geoapify.com/v1/icon/?type=material&color=%23f90909&size=large&icon=exclamation&iconType=awesome&textSize=small&apiKey=${process.env.REACT_APP_GEOAPIFY_API_KEY}`)
 }
 
 const getFoundMarkerIcon = (type) => {
-  if(type === 'Documents officiels') return   createIcon('https://api.geoapify.com/v1/icon/?type=material&color=%2302c814&size=large&icon=id-card&iconType=awesome&textSize=small&apiKey=f8ac281013a6496a9d80af7e23b97807')
-  if(type === 'Effets personnels') return   createIcon('https://api.geoapify.com/v1/icon/?type=material&color=%2302c814&size=large&icon=key&iconType=awesome&textSize=small&apiKey=f8ac281013a6496a9d80af7e23b97807')
-  if(type === 'Portefeuille / Argent') return   createIcon('https://api.geoapify.com/v1/icon/?type=material&color=%2302c814&size=large&icon=euro-sign&iconType=awesome&textSize=small&apiKey=f8ac281013a6496a9d80af7e23b97807')
-  if(type === 'Animaux') return   createIcon('https://api.geoapify.com/v1/icon/?type=material&color=%2302c814&size=large&icon=paw&iconType=awesome&textSize=small&apiKey=f8ac281013a6496a9d80af7e23b97807')
-  if(type === 'Enfants') return   createIcon('https://api.geoapify.com/v1/icon/?type=material&color=%2302c814&size=large&icon=baby&iconType=awesome&textSize=small&apiKey=f8ac281013a6496a9d80af7e23b97807')
-  if(type === 'Autre') return   createIcon('https://api.geoapify.com/v1/icon/?type=material&color=%2302c814&size=large&icon=exclamation&iconType=awesome&textSize=small&apiKey=f8ac281013a6496a9d80af7e23b97807')
+  if(type === 'Documents officiels') return   createIcon(`https://api.geoapify.com/v1/icon/?type=material&color=%2302c814&size=large&icon=id-card&iconType=awesome&textSize=small&apiKey=${process.env.REACT_APP_GEOAPIFY_API_KEY}`)
+  if(type === 'Effets personnels') return   createIcon(`https://api.geoapify.com/v1/icon/?type=material&color=%2302c814&size=large&icon=key&iconType=awesome&textSize=small&apiKey=${process.env.REACT_APP_GEOAPIFY_API_KEY}`)
+  if(type === 'Portefeuille / Argent') return   createIcon(`https://api.geoapify.com/v1/icon/?type=material&color=%2302c814&size=large&icon=euro-sign&iconType=awesome&textSize=small&apiKey=${process.env.REACT_APP_GEOAPIFY_API_KEY}`)
+  if(type === 'Animaux') return   createIcon(`https://api.geoapify.com/v1/icon/?type=material&color=%2302c814&size=large&icon=paw&iconType=awesome&textSize=small&apiKey=${process.env.REACT_APP_GEOAPIFY_API_KEY}`)
+  if(type === 'Enfants') return   createIcon(`https://api.geoapify.com/v1/icon/?type=material&color=%2302c814&size=large&icon=baby&iconType=awesome&textSize=small&apiKey=${process.env.REACT_APP_GEOAPIFY_API_KEY}`)
+  if(type === 'Autre') return   createIcon(`https://api.geoapify.com/v1/icon/?type=material&color=%2302c814&size=large&icon=exclamation&iconType=awesome&textSize=small&apiKey=${process.env.REACT_APP_GEOAPIFY_API_KEY}`)
 }
 
 //format de la date
