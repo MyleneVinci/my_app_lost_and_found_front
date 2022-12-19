@@ -27,9 +27,7 @@ const DeclarationMap = ({latitude, longitude}) => {
 
 //ajout de marqueur
 const AddMArker = () => {
-    const [markers, setMarkers] = useState([]);
     const map = useMap()
-    let marker
 
     useMapEvents({
         click: (e) => {
@@ -37,7 +35,7 @@ const AddMArker = () => {
             let position = e.latlng
 
             //supprime le marqueur précédent si il existe
-            if (marker != undefined) {
+            if (marker !== undefined) {
                 map.removeLayer(marker)
             }
 
@@ -70,7 +68,7 @@ const LeafletgeoSearch = (e) => {
             map.addControl(searchControl);
         
             return () => map.removeControl(searchControl);
-        }, []);
+        }, [map]);
 }
 
 //geolocalisation du user
@@ -88,7 +86,7 @@ const MyLocation = () => {
         }).addTo(map);
 
         return () => map.removeControl(button);
-    }, []);
+    }, [map]);
     }
 
     return (
