@@ -88,7 +88,7 @@ const newFormatDate = (date) => {
               <p>Documents officiels</p>
             </div>
             <div className="icon-legend">
-              <img src={moneyIcon} alt="légende icône type d'objet effets personnels" />
+              <img src={stuffIcon} alt="légende icône type d'objet effets personnels" />
               <p>Effets personnels</p>
             </div>
             <div className="icon-legend">
