@@ -1,0 +1,74 @@
+.promise {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.promise h2 {
+    text-align: center;
+    color: var(--main-color);
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container button {
+    width: 100px;
+    font-size:x-large;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgb(104, 104, 104);
+    color: white;
+    cursor: pointer;
+}
+
+.found {
+    background-color:#3b8615;
+}
+
+.lost {
+    background-color: rgb(190, 12, 12);
+}
+
+@media screen and (min-width: 768px) {
+    .button-container {
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .promise h2 {
+        font-size: 50px;
+    }
+
+    .button-container {
+        width: 40%;
+        justify-content: space-around;
+    }
+
+    .button-container button {
+        width: 150px;
+        height: 60px;
+        font-size: xx-large;   
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .promise h2 {
+        font-size: 70px;
+    }
+
+    .button-container button {
+        width: 200px;
+        height: 80px;
+        font-size: 40px;   
+        margin: 50px 0 80px 0;
+    }
+}

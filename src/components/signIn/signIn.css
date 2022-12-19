@@ -1,0 +1,242 @@
+.signIn {
+    width: 72%;
+    margin: auto;
+    color: var(--main-color);
+    margin-bottom: 100px;
+}
+
+.signIn h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.signIn-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signIn-form input {
+    width: 100%;
+    border-radius: 3px;
+    height: 30px;
+    border-color: rgb(202, 198, 198);
+}
+
+.signIn-form button {
+    margin: auto;
+    margin-top: 40px;
+    width: 100%;
+    padding: 0 10px 5px 10px;
+    font-size: x-large;
+    border-radius: 3px;
+    color: var(--second-color);
+    background-color: var(--third-color);
+}
+
+.signIn-form p {
+    font-size: smaller;
+}
+
+.signIn-pseudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signIn-email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signIn-password {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signIn-confirmation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signIn-pseudo, .signIn-email, .signIn-password, .signIn-confirmation  label {
+    font-size: large;
+    margin-top: 10px;
+}
+
+.signIn-checkbox {
+    display:block;
+    flex-direction:inherit;
+}
+
+.signIn-checkbox input {
+    width: 10px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.signIn-checkbox label {
+    font-size: smaller;
+    word-break: break-word;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 6px;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.5px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.form-control.is-invalid, .was-validated .form-control:invalid {
+    border-color: #dc3545;
+}
+
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 3px rgb(13 110 253 / 25%);
+}
+
+.form-control.is-invalid:focus, .was-validated .form-control:invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgb(220 53 69 / 25%);
+}
+
+.is-invalid~.invalid-feedback, .is-invalid~.invalid-tooltip, .was-validated :invalid~.invalid-feedback, .was-validated :invalid~.invalid-tooltip {
+    display: block;
+}
+
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    font-size: 14px;
+    color: #dc3545;
+    word-break: break-word;
+}
+
+.form-check-input.is-invalid, .was-validated .form-check-input:invalid {
+    border-color: #dc3545;
+}
+
+.form-check-input[type=checkbox] {
+    border-radius: 0.5px;
+}
+
+.form-check-input:checked {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+@media screen and (min-width:768px) {
+    .signIn h1 {
+        margin-bottom: 40px;
+    }
+        
+    .signIn-form input {
+        width: 70%;
+    }
+    
+    .signIn-form button {
+        margin-top: 10px;
+        width: 70%;
+        font-size: x-large;
+    }
+    
+    .signIn-form p {
+        font-size: smaller;
+    }
+
+    .signIn-pseudo, .signIn-email, .signIn-password, .signIn-confirmation  label {
+        font-size: x-large;
+    }    
+    
+    .signIn-checkbox {
+        margin: 20px 0 10px 0;
+    }
+    
+    .signIn-checkbox input {
+        width: 10px;
+        margin-right: 10px;
+    } 
+}
+
+@media screen and (min-width:1200px) {
+    .signIn h1 {
+        font-size: 50px;
+    }
+
+    .signIn-form button {
+        width: 50%;
+    }
+
+    .signIn-form input {
+        width: 60%;
+    }
+
+    .signIn-checkbox input {
+        width: 10px;
+        margin-right: 10px;
+    } 
+
+    .signIn-form input::placeholder {
+        font-size: large;    
+    }
+}
+
+@media screen and (min-width:1500px) {
+    .signIn h1 {
+        font-size: 60px;
+    }
+
+    .signIn-pseudo, .signIn-email, .signIn-password, .signIn-confirmation  label {
+        font-size: xx-large;
+    }    
+
+    .signIn-form button {
+        width: 40%;
+        font-size: xx-large;
+    }
+
+    .signIn-form input {
+        width: 45%;
+        height: 50%;
+    }
+    .signIn-form input::placeholder {
+        font-size: x-large;    
+    }
+
+    .signIn-form p {
+        font-size: large;
+    }
+
+    .signIn-checkbox input {
+        width: 15px;
+        margin-right: 10px;
+    } 
+
+    .signIn-checkbox label {
+        font-size: large;
+    } 
+
+    .invalid-feedback {
+        font-size: 18px;
+    }    
+}
+
+
+
+
+
+
