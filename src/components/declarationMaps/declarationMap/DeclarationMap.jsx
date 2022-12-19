@@ -28,6 +28,7 @@ const DeclarationMap = ({latitude, longitude}) => {
 //ajout de marqueur
 const AddMArker = () => {
     const map = useMap()
+    let marker;
 
     useMapEvents({
         click: (e) => {
