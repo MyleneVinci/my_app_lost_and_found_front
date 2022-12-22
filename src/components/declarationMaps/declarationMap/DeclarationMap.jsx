@@ -91,7 +91,7 @@ const MyLocation = () => {
     }
 
     return (
-        <div className="mapContainer">
+        <div className="declarationMapContainer">
             <MapContainer center={[43.296482, 5.36978]} zoom={13} scrollWheelZoom={false}
             > 
                 <TileLayer
