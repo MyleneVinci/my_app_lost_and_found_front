@@ -118,10 +118,10 @@ const newFormatDate = (date) => {
               <LayerGroup>
                 {getAd && getAd
                 .filter(ad => ad.item_status === 'perdu')
-                .map((ad, index) => (
-                  <Marker key={index} position={[ad.latitude, ad.longitude]} icon={getLostMarkerIcon(ad.type)}>
+                .map((ad) => (
+                  <Marker key={ad.id} position={[ad.latitude, ad.longitude]} icon={getLostMarkerIcon(ad.type)}>
                     <Popup className="popup">
-                      Annonce n° {index + 1} <br />
+                      Annonce n° {ad.id} <br />
                       Publiée le  {newFormatDate(ad.date)} par {ad.username} <br />
                       {/* Concerne : <br /> */}
                       Type : {ad.category} <br /> 
@@ -139,10 +139,10 @@ const newFormatDate = (date) => {
               <LayerGroup>
                 {getAd && getAd
                 .filter(ad => ad.item_status === 'trouvé' )
-                .map((ad, index) => (
-                  <Marker key={index} position={[ad.latitude, ad.longitude]} icon={getFoundMarkerIcon(ad.type)}>
+                .map((ad) => (
+                  <Marker key={ad.id} position={[ad.latitude, ad.longitude]} icon={getFoundMarkerIcon(ad.type)}>
                     <Popup>
-                      Annonce n° {index + 1} <br />
+                      Annonce n° {ad.id} <br />
                       Publiée le  {newFormatDate(ad.date)} par {ad.username} <br />
                       {/* Concerne : <br /> */}
                       Type : {ad.category} <br /> 

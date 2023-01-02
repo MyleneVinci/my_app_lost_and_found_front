@@ -1,16 +1,20 @@
-import React, { useState}  from 'react';
+import React, { useState, useEffect }  from 'react';
+import { useParams } from 'react-router-dom';
+
+import axios from 'axios';
+
 import { FaChevronDown, FaChevronUp  } from "react-icons/fa";
 
 
 import './personalData.css';
 
 const PersonalData = () => {
+
+    //gestion des menus déroulants
     const [isTitleReduce, setIsTitleReduce] = useState(false);
     const [isPseudoReduce, setIsPseudoReduce] = useState(false);
     const [isEmailReduce, setIsEmailReduce] = useState(false);
     const [isPasswordReduce, setIsPasswordReduce] = useState(false);
-
-
 
     const handleTitleReduce = () => {
     setIsTitleReduce(!isTitleReduce);
@@ -28,6 +32,22 @@ const PersonalData = () => {
     setIsPasswordReduce(!isPasswordReduce);
     }
 
+        //gestion des appels a l'api
+        const url = `${process.env.REACT_APP_API_URL}`
+
+
+        //affichage des données de la base de données
+        const { id }= useParams();
+        const [getDataUser, setGetDataUser] = useState([]);
+    
+        useEffect(() => {
+            axios
+                .get(`${process.env.REACT_APP_API_URL}/user/${id}`)
+                .then((res) => res.data)
+                .then((data) => setGetDataUser(data))
+        }, [id])
+        
+
 
 return (
     <div className='profile-block'>
@@ -41,7 +61,7 @@ return (
                 {/* bloc infos pseudo */ }
                 <div className="profile-block-content">
                     <div className="profile-block-content-pseudo-title">
-                        <label>Pseudo : pseudo</label>
+                        <label>Pseudo : {getDataUser.username}</label>
                         <span onClick={handlePseudoReduce}>Changer</span>
                     </div>
                 {/* Affichage conditionnel du changement de pseudo */}
@@ -55,7 +75,7 @@ return (
                 {/* bloc infos email */}
                 <div className="profile-block-content">
                     <div className="profile-block-content-email-title">
-                        <label>Email : email</label>
+                        <label>Email : {getDataUser.email}</label>
                         <span onClick={handleEmailReduce}>Changer</span>
                     </div>
                 {/* Affichage conditionnel du changement d'email' */}
