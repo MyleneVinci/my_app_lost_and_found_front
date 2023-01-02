@@ -72,10 +72,10 @@ const FoundForm = () => {
         const formData = new FormData();
         formData.append("item_status", item_status);
         formData.append("date", date);
-        formData.append("type_id", types_id);
-        formData.append("category_id", categories_id);
-        formData.append("subcategory_id", subcategories_id);
-        formData.append("subcategory_detail_id", subcategory_details_id);
+        formData.append("types_id", types_id);
+        formData.append("categories_id", categories_id);
+        formData.append("subcategories_id", subcategories_id);
+        formData.append("subcategory_details_id", subcategory_details_id);
         formData.append("text_description", text_description);
         formData.append("picture", picture);
         formData.append("user_id", user_id);

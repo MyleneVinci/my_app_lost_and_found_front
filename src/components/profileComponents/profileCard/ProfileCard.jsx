@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { FaChevronDown, FaChevronUp  } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp, FaMinusCircle  } from "react-icons/fa";
 
 import './profileCard.css';
 
 
-const ProfileCard = ({title, getDataAd}) => {
+const ProfileCard = ({title, getDataAd, deleteDataAd, loading}) => {
+  
 
     //gestion menu déroulant
     const [isTitleReduce, setIsTitleReduce] = useState(false);
@@ -17,7 +18,7 @@ const ProfileCard = ({title, getDataAd}) => {
     const newFormatDate = (date) => {
         return date.substring(0, 10).split("-").reverse().join("-");  
     }
-  
+
     
     return (
         <div className='profile-block'>
@@ -27,20 +28,24 @@ const ProfileCard = ({title, getDataAd}) => {
             </div>
             { isTitleReduce ? 
                 <div className="data-card-content-list">
-                {
-                    getDataAd &&
-                    getDataAd.map((ad, index) => (
-                        <div className='list-ad' key={index}>
-                            <ul>
-                                <li>Numéro de l'annonce{index+1}</li>
-                                <li>Date de publication : {newFormatDate(ad.date)}</li>
-                                <li>Type d'objet : {ad.type}</li>
-                            </ul>
-                        </div>
-                    ))
-                }
-            </div> : null }
-    </div>
+                    {getDataAd.length !== 0 ? 
+                        <div>
+                            {getDataAd &&
+                            getDataAd.map((ad) => (
+                                <div className='list-ad' key={ad.id}>
+                                    <ul>
+                                        <li>Numéro de l'annonce : {ad.id}</li>
+                                        <li>Date de publication : {newFormatDate(ad.date)}</li>
+                                        <li>Type d'objet : {ad.type}</li>
+                                    </ul>
+                                    <span><FaMinusCircle onClick={() => deleteDataAd(ad.id)} /></span>
+                                </div>
+                            ))
+                            }
+                        </div> : 
+                        <p>pas d'informations pour le moment</p>}
+                </div> : null }
+        </div>
     )
 }
 
