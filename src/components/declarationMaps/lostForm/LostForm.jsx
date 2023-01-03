@@ -60,10 +60,10 @@ const LostForm = () => {
 
     const [item_status, setItem_status] = useState("perdu")
     const [date, setDate] = useState("")
-    const [type_id, setType_id] = useState("");
-    const [category_id, setCategory_id] = useState("")
-    const [subcategory_id, setSubcategory_id] = useState("")
-    const [subcategory_detail_id, setSubcategory_detail_id] = useState("")
+    const [types_id, setTypes_id] = useState("");
+    const [categories_id, setCategories_id] = useState("")
+    const [subcategories_id, setSubcategories_id] = useState("")
+    const [subcategory_details_id, setSubcategory_details_id] = useState("")
     const [text_description, setText_description] = useState("")
     const [picture, setPicture] = useState("")
     const [user_id, setUser_id] = useState(id)
@@ -72,10 +72,10 @@ const LostForm = () => {
         const formData = new FormData();
         formData.append("item_status", item_status);
         formData.append("date", date);
-        formData.append("type_id", type_id);
-        formData.append("category_id", category_id);
-        formData.append("subcategory_id", subcategory_id);
-        formData.append("subcategory_detail_id", subcategory_detail_id);
+        formData.append("types_id", types_id);
+        formData.append("categories_id", categories_id);
+        formData.append("subcategories_id", subcategories_id);
+        formData.append("subcategory_details_id", subcategory_details_id);
         formData.append("text_description", text_description);
         formData.append("picture", picture);
         formData.append("user_id", user_id);
@@ -135,10 +135,10 @@ const LostForm = () => {
 
                     /> 
                     <select
-                        onChange={(event) => setType_id(event.target.value)}
-                        value={type_id}
-                        id="type_id"  
-                        name="type_id"        
+                        onChange={(event) => setTypes_id(event.target.value)}
+                        value={types_id}
+                        id="types_id"  
+                        name="types_id"        
                     >
                         <option>Type</option>
                         {getTypes.map((type, index) => (
@@ -148,10 +148,10 @@ const LostForm = () => {
                         ))}
                     </select>
                     <select
-                        onChange={(event) => setCategory_id(event.target.value)}
-                        value={category_id}
-                        id="category_id" 
-                        name="category_id"         
+                        onChange={(event) => setCategories_id(event.target.value)}
+                        value={categories_id}
+                        id="categories_id" 
+                        name="categories_id"         
                         
                     >
                         <option>Catégorie</option>
@@ -162,10 +162,10 @@ const LostForm = () => {
                         ))}
                     </select>
                     <select
-                        onChange={(event) => setSubcategory_id(event.target.value)}
-                        value={subcategory_id}
-                        id="subcategory_id"          
-                        name="subcategory_id"          
+                        onChange={(event) => setSubcategories_id(event.target.value)}
+                        value={subcategories_id}
+                        id="subcategories_id"          
+                        name="subcategories_id"          
                     >
                         <option>Sous-catégorie</option>
                         {getSubcategories.map((subcategory, index) => (
@@ -175,10 +175,10 @@ const LostForm = () => {
                         ))}
                     </select>
                     <select
-                        onChange={(event) => setSubcategory_detail_id(event.target.value)}
-                        value={subcategory_detail_id}
-                        id="subcategory_detail_id"                          
-                        name="subcategory_detail_id"                          
+                        onChange={(event) => setSubcategory_details_id(event.target.value)}
+                        value={subcategory_details_id}
+                        id="subcategory_details_id"                          
+                        name="subcategory_details_id"                          
                     >
                         <option>Détail</option>
                         {getDetails.map((detail, index) => (

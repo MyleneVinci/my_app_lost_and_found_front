@@ -1,0 +1,20 @@
+.list-ad li {
+    list-style: none;
+}
+
+.list-ad {
+    display: flex;
+    flex-direction: row;
+
+    width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-left: 5px;
+    border: 2px solid #ced4da;
+    border-radius: 5.5px;
+}
+
+
+.data-card-content-list p {
+    text-align: center;
+}
